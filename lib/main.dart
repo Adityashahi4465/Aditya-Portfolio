@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
       title: 'Aditya Shahi',
       debugShowCheckedModeBanner: false,
       theme: ThemeData.dark().copyWith(
-        textTheme: GoogleFonts.geologicaTextTheme().apply(
+        textTheme: GoogleFonts.openSansTextTheme().apply(
           bodyColor: Colors.white,
           displayColor: Colors.white,
         ),

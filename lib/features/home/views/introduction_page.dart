@@ -1,3 +1,4 @@
+import 'package:aditya_portfolio/core/constants/assets_constants.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 
@@ -10,7 +11,6 @@ class IntroductionPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
-
     return SizedBox(
       height: 800,
       child: Row(
@@ -118,7 +118,9 @@ class IntroductionPage extends StatelessWidget {
           if (!ResponsiveLayout.isSmallScreen(context))
             CircleAvatar(
               radius: MediaQuery.of(context).size.width / 8,
-              backgroundImage: const AssetImage("images/me.jpg"),
+              backgroundImage: const AssetImage(
+                meImagePath,
+              ),
             ),
         ],
       ),
