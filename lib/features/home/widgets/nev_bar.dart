@@ -10,15 +10,18 @@ class NavBar extends StatelessWidget {
   List<Widget> navItem() {
     return UiConstants.navLinks.map(
       (text) {
-        return Padding(
-          padding: const EdgeInsets.only(
-            left: 24,
-          ),
-          child: Text(
-            text,
-            style: GoogleFonts.geologica(
-              textStyle: const TextStyle(
-                fontSize: 16,
+        return MouseRegion(
+          cursor: SystemMouseCursors.click,
+          child: Padding(
+            padding: const EdgeInsets.only(
+              left: 24,
+            ),
+            child: Text(
+              text,
+              style: GoogleFonts.geologica(
+                textStyle: const TextStyle(
+                  fontSize: 16,
+                ),
               ),
             ),
           ),
