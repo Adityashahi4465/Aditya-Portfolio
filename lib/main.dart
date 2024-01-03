@@ -1,4 +1,5 @@
 import 'package:aditya_portfolio/core/utils/color.dart';
+import 'package:aditya_portfolio/theme/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -22,11 +23,7 @@ class MyApp extends StatelessWidget {
           bodyColor: Colors.white,
           displayColor: Colors.white,
         ),
-        scaffoldBackgroundColor: Color(
-          getColorHexFromStr(
-            "#0A115C",
-          ),
-        ),
+        scaffoldBackgroundColor: AppColors.primary,
       ),
       home: const HomePage(),
     );

@@ -21,73 +21,63 @@ class AboutPage extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 12.0),
         child: Container(
           color: AppColors.primaryDark,
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Container(
-                height: size.height * 0.88,
-                width: size.width * 0.33,
-                color: AppColors.white,
-                padding: const EdgeInsets.all(68.0),
-                child: Image.asset(
-                  meImagePath,
-                  fit: BoxFit.cover,
-                ),
-              ),
-              SizedBox(
-                width: size.width * 0.04,
-              ),
-              SizedBox(
-                width: size.width * 0.33,
-                child: const Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    AutoSizeText(
-                      "I Create Products\nNot Just Art",
-                      style: TextStyle(
-                        fontSize: 52,
-                        fontWeight: FontWeight.bold,
-                      ),
-                      maxLines: 2,
-                      minFontSize: 20,
-                      maxFontSize: 52,
-                    ),
-                    SizedBox(
-                      height: 32,
-                    ),
-                    AutoSizeText(
-                      "Hello, I'm Aditya Shahi, a passionate freelance software developer specializing in Flutter, Dart, and Nodejs. With hands-on experience in crafting efficient solutions using frameworks like Flutter, Node js, Firebase, and MySQL, I bring creativity and precision to every project. Whether you need a mobile app or a robust backend, I'm here to turn your ideas into reality. Let's build something amazing together!",
-                      style: TextStyle(
-                        fontWeight: FontWeight.w100,
-                        color: AppColors.greyLight,
-                        letterSpacing: 1,
-                        wordSpacing: 1.5,
-                        height: 1.8,
-                      ),
-                      maxLines:
-                          8, // Adjust the number of lines based on your layout
-                      minFontSize: 16,
-                      maxFontSize: 18,
-                    ),
-                    SizedBox(
-                      height: 16,
-                    ),
-                    BulletPoints(
-                      text: "Elite Solutions, Competitive Pricing",
-                    ),
-                    BulletPoints(
-                      text: "Distinctive Design, Top-tier Development",
-                    ),
-                    BulletPoints(
-                      text: "Exceptional Quality, Affordable Rates",
-                    ),
-                  ],
-                ),
-              ),
-            ],
-          ),
+          // child: Row(
+          //   mainAxisAlignment: MainAxisAlignment.center,
+          //   crossAxisAlignment: CrossAxisAlignment.center,
+          //   children: [
+          //     SizedBox(
+          //       width: size.width * 0.04,
+          //     ),
+          //     SizedBox(
+          //       width: size.width * 0.33,
+          //       child: const Column(
+          //         crossAxisAlignment: CrossAxisAlignment.start,
+          //         mainAxisAlignment: MainAxisAlignment.center,
+          //         children: [
+          //           AutoSizeText(
+          //             "I Create Products\nNot Just Art",
+          //             style: TextStyle(
+          //               fontSize: 52,
+          //               fontWeight: FontWeight.bold,
+          //             ),
+          //             maxLines: 2,
+          //             minFontSize: 20,
+          //             maxFontSize: 52,
+          //           ),
+          //           SizedBox(
+          //             height: 32,
+          //           ),
+          //           AutoSizeText(
+          //             "Hello, I'm Aditya Shahi, a passionate freelance software developer specializing in Flutter, Dart, and Nodejs. With hands-on experience in crafting efficient solutions using frameworks like Flutter, Node js, Firebase, and MySQL, I bring creativity and precision to every project. Whether you need a mobile app or a robust backend, I'm here to turn your ideas into reality. Let's build something amazing together!",
+          //             style: TextStyle(
+          //               fontWeight: FontWeight.w100,
+          //               color: AppColors.greyLight,
+          //               letterSpacing: 1,
+          //               wordSpacing: 1.5,
+          //               height: 1.8,
+          //             ),
+          //             maxLines:
+          //                 8, // Adjust the number of lines based on your layout
+          //             minFontSize: 16,
+          //             maxFontSize: 18,
+          //           ),
+          //           SizedBox(
+          //             height: 16,
+          //           ),
+          //           BulletPoints(
+          //             text: "Elite Solutions, Competitive Pricing",
+          //           ),
+          //           BulletPoints(
+          //             text: "Distinctive Design, Top-tier Development",
+          //           ),
+          //           BulletPoints(
+          //             text: "Exceptional Quality, Affordable Rates",
+          //           ),
+          //         ],
+          //       ),
+          //     ),
+          //   ],
+          // ),
         ),
       ),
     );

@@ -13,6 +13,17 @@ class AppColors {
       "#0A115C",
     ),
   );
+
+  static Color primaryLightDark = Color(
+    getColorHexFromStr(
+      "#08084E",
+    ),
+  );
+  static Color darkPurple = Color(
+    getColorHexFromStr(
+      "#181764",
+    ),
+  );
   static const Color primaryLight = Color(0xFF5472D3);
   static const Color accent = Color(0xFF00B0FF);
   static const Color accentDark = Color(0xFF007BBB);

@@ -27,7 +27,7 @@ class BulletPoints extends StatelessWidget {
             child: AutoSizeText(
               text,
               minFontSize: 16,
-              maxFontSize: 20,
+              maxFontSize: 18,
             ),
           ),
         ],
