@@ -10,14 +10,15 @@ import '../widgets/bullet_points.dart';
 import '../widgets/nev_bar.dart';
 import 'introduction_page.dart';
 import 'projects_page.dart';
+import 'testimonials_page.dart';
 
 class HomePage extends StatelessWidget {
-  const HomePage({Key? key});
+  const HomePage({super.key});
 
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
-
+    print('home page built');
     return Scaffold(
       body: SingleChildScrollView(
         child: Column(
@@ -56,6 +57,7 @@ class HomePage extends StatelessWidget {
                     ),
                     const ServicesPage(),
                     const ProjectsPage(),
+                    const TestimonialsPage(),
                   ],
                 ),
               ],

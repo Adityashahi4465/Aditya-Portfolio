@@ -24,11 +24,31 @@ class AppColors {
       "#181764",
     ),
   );
-  static const Color primaryLight = Color(0xFF5472D3);
+  static Color purpleCardColor = Color(
+    getColorHexFromStr(
+      "#111051",
+    ),
+  );
+  static Color lightPurpleCardColor = Color(
+    getColorHexFromStr(
+      "#242069",
+    ),
+  );
+  static Color primaryLight = Color(
+    getColorHexFromStr(
+      "#353085",
+    ),
+  );
+  static Color brightBorderColor = Color(
+    getColorHexFromStr(
+      "#5362E9",
+    ),
+  );
   static const Color accent = Color(0xFF00B0FF);
   static const Color accentDark = Color(0xFF007BBB);
   static const Color accentLight = Color(0xFF62EFFF);
   static const Color background = Color(0xFFE3F2FD);
+  static const Color red = Color.fromARGB(255, 255, 73, 60);
   static const Color surface = Color(0xFFFFFFFF);
   static const Color error = Color(0xFFB00020);
   static const Color onPrimary = Color(0xFFFFFFFF);

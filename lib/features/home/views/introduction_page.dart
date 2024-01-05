@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 
 import '../../../common/social_media_button.dart';
 import '../../../core/utils/responsive.dart';
+import '../../../theme/app_colors.dart';
 
 class IntroductionPage extends StatelessWidget {
   const IntroductionPage({super.key});
@@ -40,7 +41,7 @@ class IntroductionPage extends StatelessWidget {
                           style: TextStyle(
                             fontSize: 44,
                             fontWeight: FontWeight.bold,
-                            color: Color.fromARGB(255, 255, 73, 60),
+                            color: AppColors.red,
                           ),
                         ),
                         TextSpan(
