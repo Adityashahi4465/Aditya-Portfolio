@@ -15,7 +15,7 @@ class IntroductionPage extends StatelessWidget {
     return SizedBox(
       height: size.height * 1.08,
       child: Padding(
-        padding: const EdgeInsets.only(bottom : 120.0),
+        padding: const EdgeInsets.only(bottom: 120.0),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -24,9 +24,8 @@ class IntroductionPage extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.center,
-                
                 children: <Widget>[
-                   AutoSizeText.rich(
+                  AutoSizeText.rich(
                     maxLines: 2,
                     minFontSize: 20,
                     maxFontSize: 26,

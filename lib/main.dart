@@ -1,9 +1,9 @@
-import 'theme/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import 'features/home/views/home_page.dart';
+import 'theme/app_colors.dart';
 
 void main() {
   runApp(

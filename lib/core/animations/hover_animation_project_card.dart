@@ -58,6 +58,14 @@ class _AnimatedProjectCardState extends State<AnimatedProjectCard>
   }
 
   @override
+  void dispose() {
+    animationController.dispose();
+    containerWidthNotifier.dispose();
+
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return MouseRegion(
       onHover: (_) {
