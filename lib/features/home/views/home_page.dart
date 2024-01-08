@@ -8,6 +8,7 @@ import '../../../core/utils/color.dart';
 import '../widgets/about_content.dart';
 import '../widgets/bullet_points.dart';
 import '../widgets/nev_bar.dart';
+import 'contact_page.dart';
 import 'introduction_page.dart';
 import 'projects_page.dart';
 import 'testimonials_page.dart';
@@ -58,6 +59,7 @@ class HomePage extends StatelessWidget {
                     const ServicesPage(),
                     const ProjectsPage(),
                     const TestimonialsPage(),
+                    const ContactPage(),
                   ],
                 ),
               ],

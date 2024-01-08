@@ -44,11 +44,15 @@ class AppColors {
       "#5362E9",
     ),
   );
+  static Color red = Color(
+    getColorHexFromStr(
+      "#FE3E57",
+    ),
+  );
   static const Color accent = Color(0xFF00B0FF);
   static const Color accentDark = Color(0xFF007BBB);
   static const Color accentLight = Color(0xFF62EFFF);
   static const Color background = Color(0xFFE3F2FD);
-  static const Color red = Color.fromARGB(255, 255, 73, 60);
   static const Color surface = Color(0xFFFFFFFF);
   static const Color error = Color(0xFFB00020);
   static const Color onPrimary = Color(0xFFFFFFFF);

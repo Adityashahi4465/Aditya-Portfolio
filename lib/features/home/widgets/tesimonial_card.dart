@@ -71,7 +71,7 @@ class TestimonialCard extends StatelessWidget {
                   children: [
                     AutoSizeText(
                       testimonial.name,
-                      style: const TextStyle(
+                      style: TextStyle(
                         fontSize: 24,
                         fontWeight: FontWeight.bold,
                         color: AppColors.red,

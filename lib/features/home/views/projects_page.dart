@@ -1,8 +1,8 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 
-import '../../../common/project_card.dart';
 import '../../../common/section_title.dart';
+import '../../../core/animations/hover_animation_project_card.dart';
 import '../../../core/constants/assets_constants.dart';
 import '../../../theme/app_colors.dart';
 import '../widgets/service_item.dart';
@@ -31,14 +31,14 @@ class ProjectsPage extends StatelessWidget {
               const SizedBox(
                 height: 50,
               ),
-              ProjectCard(
+              AnimatedProjectCard(
                 size: size,
                 color: AppColors.accentLight,
               ),
               const SizedBox(
                 height: 2,
               ),
-              ProjectCard(
+              AnimatedProjectCard(
                 size: size,
                 color: AppColors.accentDark,
               ),
@@ -53,14 +53,14 @@ class ProjectsPage extends StatelessWidget {
               const SizedBox(
                 height: 62,
               ),
-              ProjectCard(
+              AnimatedProjectCard(
                 size: size,
-                color: AppColors.grey,
+                color: AppColors.brightBorderColor,
               ),
               const SizedBox(
                 height: 2,
               ),
-              ProjectCard(
+              AnimatedProjectCard(
                 size: size,
                 color: AppColors.greyDark,
               ),

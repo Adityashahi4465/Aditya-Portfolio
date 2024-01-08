@@ -26,13 +26,13 @@ class IntroductionPage extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 
                 children: <Widget>[
-                  const AutoSizeText.rich(
+                   AutoSizeText.rich(
                     maxLines: 2,
                     minFontSize: 20,
                     maxFontSize: 26,
                     TextSpan(
                       text: "I'm ",
-                      style: TextStyle(
+                      style: const TextStyle(
                         fontSize: 44,
                       ),
                       children: [
@@ -44,7 +44,7 @@ class IntroductionPage extends StatelessWidget {
                             color: AppColors.red,
                           ),
                         ),
-                        TextSpan(
+                        const TextSpan(
                           text: "Shahi",
                           style: TextStyle(
                             fontSize: 44,
@@ -83,7 +83,7 @@ class IntroductionPage extends StatelessWidget {
                         onPressed: () {
                           print("Social button pressed!");
                         },
-                        buttonColor: Color.fromARGB(255, 41, 41, 41),
+                        buttonColor: const Color.fromARGB(255, 41, 41, 41),
                         imagePath: 'images/github.png',
                       ),
                       SocialMediaButton(
@@ -97,14 +97,14 @@ class IntroductionPage extends StatelessWidget {
                         onPressed: () {
                           print("Social button pressed!");
                         },
-                        buttonColor: Color.fromARGB(255, 203, 0, 68),
+                        buttonColor: const Color.fromARGB(255, 203, 0, 68),
                         imagePath: 'images/instagram.png',
                       ),
                       SocialMediaButton(
                         onPressed: () {
                           print("Social button pressed!");
                         },
-                        buttonColor: Color.fromARGB(255, 0, 60, 210),
+                        buttonColor: const Color.fromARGB(255, 0, 60, 210),
                         imagePath: 'images/facebook.png',
                       ),
                     ],
