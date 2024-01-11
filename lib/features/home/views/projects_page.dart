@@ -2,7 +2,7 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 
 import '../../../common/section_title.dart';
-import '../../../core/animations/hover_animation_project_card.dart';
+import '../../../common/hover_animation_project_card.dart';
 import '../../../core/constants/assets_constants.dart';
 import '../../../theme/app_colors.dart';
 import '../widgets/service_item.dart';

@@ -44,6 +44,16 @@ class AppColors {
       "#5362E9",
     ),
   );
+  static Color footerColor = Color(
+    getColorHexFromStr(
+      "#121151",
+    ),
+  );
+  static Color footerColor2 = Color(
+    getColorHexFromStr(
+      "#0D0C4C",
+    ),
+  );
   static Color red = Color(
     getColorHexFromStr(
       "#FE3E57",

@@ -1,5 +1,7 @@
+import 'package:aditya_portfolio/core/constants/assets_constants.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
+import '../../../common/app_logo.dart';
 import '../../../core/constants/ui_constants.dart';
 import '../../../core/utils/responsive.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -40,25 +42,7 @@ class NavBar extends StatelessWidget {
             ? MainAxisAlignment.center
             : MainAxisAlignment.spaceBetween,
         children: <Widget>[
-          const Row(
-            children: <Widget>[
-              CircleAvatar(
-                radius: 34,
-                backgroundImage: AssetImage(
-                  "images/AS_logo.png",
-                ),
-              ),
-              SizedBox(
-                width: 16,
-              ),
-              Text(
-                "AdyAid",
-                style: TextStyle(
-                  fontSize: 36,
-                ),
-              )
-            ],
-          ),
+          const AppLogo(),
           SizedBox(
             width: MediaQuery.of(context).size.width > 1250 ? 130 : 10,
           ),

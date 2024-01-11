@@ -1,6 +1,43 @@
-# aditya_portfolio
 
-A new Flutter project.
+- add package : https://pub.dev/packages/url_launcher (done)
+- add following code snippet in android manifest file ()
+   ```
+    <!-- Provide required visibility configuration for API level 30 and above -->
+    <!-- If your application checks for inAppBrowserView launch mode support -->
+    <queries>
+        <intent>
+            <action android:name="android.support.customtabs.action.CustomTabsService" />
+        </intent> 
+        <intent>
+            <action android:name="android.intent.action.VIEW" />
+            <data android:scheme="https" />
+        </intent>
+    </queries>
+    ```
+
+- add logic for launching url ()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# Aditya Shahi Portfolio
+
+A Portfolio website of Aditya Shahi.
 
 ## Getting Started
 

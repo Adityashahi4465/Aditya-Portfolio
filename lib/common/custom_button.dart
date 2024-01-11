@@ -1,39 +1,43 @@
-
-
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../theme/app_colors.dart';
 
+
+
 class CustomButton extends StatelessWidget {
   const CustomButton({
-    super.key,
-  });
+    Key? key,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return ElevatedButton(
-      onPressed: () {
-        //  button click logic
+    return GestureDetector(
+      onTap: () {
+        // Button click logic
       },
-      style: ElevatedButton.styleFrom(
+      child: Container(
         padding: const EdgeInsets.symmetric(
           horizontal: 36,
           vertical: 22,
         ),
-        elevation: 0,
-        backgroundColor: AppColors.red,
-        shape: const StadiumBorder(),
-      ),
-      child: Text(
-        'Send Message',
-        style: GoogleFonts.geologica(
-          textStyle: const TextStyle(
-            fontSize: 16,
-            color: AppColors.white,
+        decoration: BoxDecoration(
+          color: AppColors.red,
+          borderRadius: BorderRadius.circular(30), // Adjust the borderRadius as needed
+        ),
+        child: Center(
+          child: Text(
+            'Send Message',
+            style: GoogleFonts.geologica(
+              textStyle: const TextStyle(
+                fontSize: 16,
+                color: AppColors.white,
+              ),
+            ),
           ),
         ),
       ),
     );
   }
 }
+

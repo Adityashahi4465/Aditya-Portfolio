@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import '../../../common/social_media_button.dart';
 import '../../../core/utils/responsive.dart';
 import '../../../theme/app_colors.dart';
+import '../widgets/social_media_buttons_row.dart';
 
 class IntroductionPage extends StatelessWidget {
   const IntroductionPage({super.key});
@@ -68,46 +69,7 @@ class IntroductionPage extends StatelessWidget {
                   const SizedBox(
                     height: 40,
                   ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      SocialMediaButton(
-                        onPressed: () {
-                          print("Social button pressed!");
-                        },
-                        buttonColor: const Color.fromARGB(255, 0, 125, 227),
-                        imagePath: 'images/linkedin.png',
-                      ),
-                      SocialMediaButton(
-                        onPressed: () {
-                          print("Social button pressed!");
-                        },
-                        buttonColor: const Color.fromARGB(255, 41, 41, 41),
-                        imagePath: 'images/github.png',
-                      ),
-                      SocialMediaButton(
-                        onPressed: () {
-                          print("Social button pressed!");
-                        },
-                        buttonColor: const Color.fromARGB(255, 217, 130, 0),
-                        imagePath: 'images/leetcode.png',
-                      ),
-                      SocialMediaButton(
-                        onPressed: () {
-                          print("Social button pressed!");
-                        },
-                        buttonColor: const Color.fromARGB(255, 203, 0, 68),
-                        imagePath: 'images/instagram.png',
-                      ),
-                      SocialMediaButton(
-                        onPressed: () {
-                          print("Social button pressed!");
-                        },
-                        buttonColor: const Color.fromARGB(255, 0, 60, 210),
-                        imagePath: 'images/facebook.png',
-                      ),
-                    ],
-                  ),
+                  const SocialMediaButtonsRow(),
                 ],
               ),
             ),

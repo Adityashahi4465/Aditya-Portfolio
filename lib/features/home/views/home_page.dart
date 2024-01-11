@@ -9,6 +9,7 @@ import '../widgets/about_content.dart';
 import '../widgets/bullet_points.dart';
 import '../widgets/nev_bar.dart';
 import 'contact_page.dart';
+import 'home_footer.dart';
 import 'introduction_page.dart';
 import 'projects_page.dart';
 import 'testimonials_page.dart';
@@ -27,7 +28,7 @@ class HomePage extends StatelessWidget {
             Stack(
               children: [
                 Image.asset(
-                  'images/bg.jpg',
+                  bgImagePath,
                   fit: BoxFit.cover,
                   width: double.infinity,
                   height: MediaQuery.of(context).size.height * 1.5,
@@ -60,6 +61,7 @@ class HomePage extends StatelessWidget {
                     const ProjectsPage(),
                     const TestimonialsPage(),
                     const ContactPage(),
+                    const HomeFooter()
                   ],
                 ),
               ],
