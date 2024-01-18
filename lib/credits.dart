@@ -16,3 +16,5 @@ const crossPlatformDevelopmentIcon =
     '<a href="https://www.flaticon.com/free-icons/cross-platform" title="cross platform icons">Cross platform icons created by Freepik - Flaticon</a>';
 const leetcodeIcon =
     '<a target="_blank" href="https://icons8.com/icon/wDGo581Ea5Nf/level-up-your-coding-skills-and-quickly-land-a-job">Level up your coding skills and quickly land a job</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>';
+const youtubeIcon =
+    '<a href="https://www.flaticon.com/free-icons/brands-and-logotypes" title="brands and logotypes icons">Brands and logotypes icons created by Freepik - Flaticon</a>';

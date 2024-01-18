@@ -9,6 +9,7 @@ const githubImagePath = '$generalPath/github.png';
 const leetcodeImagePath = '$generalPath/leetcode.png';
 const instagramImagePath = '$generalPath/instagram.png';
 const facebookImagePath = '$generalPath/facebook.png';
+const youtubeImagePath = '$generalPath/youtube.png';
 
 // Services Images
 const serviceShapeOnePath = '$generalPath/shape.png';

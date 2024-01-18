@@ -1,33 +1,32 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../../../common/social_media_button.dart';
 import '../../../core/constants/assets_constants.dart';
 import '../../../core/constants/constants.dart';
+import '../../../core/services/services.dart';
+import '../../../theme/app_colors.dart';
 
-class SocialMediaButtonsRow extends StatelessWidget {
+class SocialMediaButtonsRow extends ConsumerWidget {
   const SocialMediaButtonsRow({
     super.key,
   });
 
-  Future<void> _launchInBrowser(String url) async {
-    if (!await launchUrl(
-        Uri.parse(
-          url,
-        ),
-        mode: LaunchMode.externalApplication)) {
-      throw 'Could not launch $url';
-    }
+  void _launchInBrowser(String url, WidgetRef ref) {
+    ref.read(servicesProvider).launchInBrowser(url);
   }
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
         SocialMediaButton(
           onPressed: () => _launchInBrowser(
             linkedinUrl,
+            ref,
           ),
           buttonColor: const Color.fromARGB(255, 0, 125, 227),
           imagePath: linkedInImagePath,
@@ -36,6 +35,7 @@ class SocialMediaButtonsRow extends StatelessWidget {
           onPressed: () {
             _launchInBrowser(
               githubUrl,
+              ref,
             );
           },
           buttonColor: const Color.fromARGB(255, 41, 41, 41),
@@ -45,6 +45,7 @@ class SocialMediaButtonsRow extends StatelessWidget {
           onPressed: () {
             _launchInBrowser(
               leetCodeUrl,
+              ref,
             );
           },
           buttonColor: const Color.fromARGB(255, 217, 130, 0),
@@ -54,15 +55,27 @@ class SocialMediaButtonsRow extends StatelessWidget {
           onPressed: () {
             _launchInBrowser(
               instagramUrl,
+              ref,
             );
           },
           buttonColor: const Color.fromARGB(255, 203, 0, 68),
           imagePath: instagramImagePath,
         ),
         SocialMediaButton(
+          imagePath: youtubeImagePath,
+          buttonColor: AppColors.red,
+          onPressed: () {
+            _launchInBrowser(
+              youtubeUrl,
+              ref,
+            );
+          },
+        ),
+        SocialMediaButton(
           onPressed: () {
             _launchInBrowser(
               facebookUrl,
+              ref,
             );
           },
           buttonColor: const Color.fromARGB(255, 0, 60, 210),

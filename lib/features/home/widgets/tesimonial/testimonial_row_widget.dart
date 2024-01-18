@@ -30,7 +30,7 @@ class TestimonialsRow extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.end,
       children: [
-        Container(
+        SizedBox(
           width: size.width * 0.76,
           height: size.height * 0.46,
           child: PageView.builder(
