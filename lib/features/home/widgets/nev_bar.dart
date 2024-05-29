@@ -1,4 +1,5 @@
 import 'package:aditya_portfolio/core/constants/assets_constants.dart';
+import 'package:aditya_portfolio/theme/app_colors.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import '../../../common/app_logo.dart';
@@ -77,6 +78,49 @@ class NavBar extends StatelessWidget {
                     ),
                   ),
                 ),
+              ],
+            )
+          else if (MediaQuery.of(context).size.width > 600)
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: <Widget>[
+                Container(
+                  decoration: const BoxDecoration(
+                    border: Border(
+                      bottom: BorderSide(
+                        color: Colors.purple, // Adjust underline color
+                        width: 1.0, // Adjust underline width
+                      ),
+                    ),
+                  ),
+                  child: AutoSizeText(
+                    minFontSize: 20,
+                    maxLines: 1,
+                    "+91 99530 48059",
+                    style: GoogleFonts.geologica(
+                      textStyle: const TextStyle(
+                        color: Colors.white,
+                        fontSize: 28,
+                        letterSpacing: 1,
+                        fontFamily: "Montserrat-Bold",
+                      ),
+                    ),
+                  ),
+                ),
+                SizedBox(
+                  width: 16,
+                ),
+                Container(
+                  decoration: BoxDecoration(
+                    color: AppColors.red,
+                    borderRadius: BorderRadius.circular(8),
+                  ),
+                  padding: const EdgeInsets.all(6),
+                  child: const Icon(
+                    Icons.menu,
+                    size: 32,
+                  ),
+                )
               ],
             )
           else

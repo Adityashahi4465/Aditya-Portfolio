@@ -1,3 +1,4 @@
+import 'package:aditya_portfolio/core/utils/responsive.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 
@@ -8,6 +9,7 @@ class ServiceItem extends StatelessWidget {
   final String description;
   final String serviceNumberShape;
   final String serviceImage;
+
   const ServiceItem({
     Key? key,
     required this.title,
@@ -20,7 +22,9 @@ class ServiceItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       margin: const EdgeInsets.only(bottom: 16),
-      width: MediaQuery.of(context).size.width * 0.4,
+      width: ResponsiveLayout.isLargeScreen(context)
+          ? MediaQuery.of(context).size.width * 0.4
+          : double.infinity,
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [

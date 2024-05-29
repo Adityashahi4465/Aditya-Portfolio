@@ -74,11 +74,11 @@ class IntroductionPage extends StatelessWidget {
               ),
             ),
             SizedBox(
-              width: MediaQuery.of(context).size.width > 1190
-                  ? 360
+              width: MediaQuery.of(context).size.width > 1120
+                  ? 240
                   : ResponsiveLayout.isMediumScreen(context)
-                      ? 90
-                      : 180,
+                      ? 40
+                      : 160,
             ),
             if (!ResponsiveLayout.isSmallScreen(context))
               CircleAvatar(

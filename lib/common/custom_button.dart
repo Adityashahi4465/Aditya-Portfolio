@@ -3,8 +3,6 @@ import 'package:google_fonts/google_fonts.dart';
 
 import '../theme/app_colors.dart';
 
-
-
 class CustomButton extends StatelessWidget {
   const CustomButton({
     Key? key,
@@ -23,7 +21,8 @@ class CustomButton extends StatelessWidget {
         ),
         decoration: BoxDecoration(
           color: AppColors.red,
-          borderRadius: BorderRadius.circular(30), // Adjust the borderRadius as needed
+          borderRadius:
+              BorderRadius.circular(30), // Adjust the borderRadius as needed
         ),
         child: Center(
           child: Text(
@@ -40,4 +39,3 @@ class CustomButton extends StatelessWidget {
     );
   }
 }
-

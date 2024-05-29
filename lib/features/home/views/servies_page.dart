@@ -1,3 +1,4 @@
+import 'package:aditya_portfolio/core/utils/responsive.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 
@@ -15,61 +16,107 @@ class ServicesPage extends StatelessWidget {
       color: AppColors.primary,
       alignment: Alignment.center,
       padding: const EdgeInsets.symmetric(vertical: 22),
-      child: const Column(
+      child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
-          SizedBox(
+          const SizedBox(
             height: 50,
           ),
-          SectionHeading(
+          const SectionHeading(
             title: 'Services',
           ),
-          SizedBox(height: 16),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              ServiceItem(
-                title: 'Web Design & Development',
-                description:
-                    'Crafting standout websites with compelling design and seamless functionality for a strong online presence.',
-                serviceNumberShape: serviceShapeOnePath,
-                serviceImage: webDesignServiceImageOPath,
-              ),
-              SizedBox(
-                width: 16,
-              ),
-              ServiceItem(
-                title: 'Mobile App Development',
-                description:
-                    "Transforming ideas into user-friendly mobile apps with Flutter for an engaging experience.",
-                serviceNumberShape: serviceShapeTwoPath,
-                serviceImage: mobileServiceImageOPath,
-              ),
-            ],
-          ),
-          SizedBox(height: 16),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              ServiceItem(
-                title: 'Backend Development',
-                description:
-                    'Building robust server-side solutions to power your apps with efficiency and scalability.',
-                serviceNumberShape: serviceShapeThreePath,
-                serviceImage: backendServiceImageOPath,
-              ),
-              SizedBox(
-                width: 16,
-              ),
-              ServiceItem(
-                title: 'Cross Platform Development',
-                description:
-                    'Developing apps that work across devices with one codebase for broader accessibility.',
-                serviceNumberShape: serviceShapeFourPath,
-                serviceImage: crossPlatformServiceImageOPath,
-              ),
-            ],
-          ),
+          const SizedBox(height: 16),
+          ResponsiveLayout.isLargeScreen(context)
+              ? const Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    ServiceItem(
+                      title: 'Web Design & Development',
+                      description:
+                          'Crafting standout websites with compelling design and seamless functionality for a strong online presence.',
+                      serviceNumberShape: serviceShapeOnePath,
+                      serviceImage: webDesignServiceImageOPath,
+                    ),
+                    SizedBox(
+                      width: 16,
+                    ),
+                    ServiceItem(
+                      title: 'Mobile App Development',
+                      description:
+                          "Transforming ideas into user-friendly mobile apps with Flutter for an engaging experience.",
+                      serviceNumberShape: serviceShapeTwoPath,
+                      serviceImage: mobileServiceImageOPath,
+                    ),
+                  ],
+                )
+              : const Column(
+                
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    ServiceItem(
+                      title: 'Web Design & Development',
+                      description:
+                          'Crafting standout websites with compelling design and seamless functionality for a strong online presence.',
+                      serviceNumberShape: serviceShapeOnePath,
+                      serviceImage: webDesignServiceImageOPath,
+                    ),
+                    SizedBox(
+                      width: 16,
+                    ),
+                    ServiceItem(
+                      title: 'Mobile App Development',
+                      description:
+                          "Transforming ideas into user-friendly mobile apps with Flutter for an engaging experience.",
+                      serviceNumberShape: serviceShapeTwoPath,
+                      serviceImage: mobileServiceImageOPath,
+                    ),
+                  ],
+                ),
+          const SizedBox(height: 16),
+          ResponsiveLayout.isLargeScreen(context)
+              ? const Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    ServiceItem(
+                      title: 'Backend Development',
+                      description:
+                          'Building robust server-side solutions to power your apps with efficiency and scalability.',
+                      serviceNumberShape: serviceShapeThreePath,
+                      serviceImage: backendServiceImageOPath,
+                    ),
+                    SizedBox(
+                      width: 16,
+                    ),
+                    ServiceItem(
+                      title: 'Cross Platform Development',
+                      description:
+                          'Developing apps that work across devices with one codebase for broader accessibility.',
+                      serviceNumberShape: serviceShapeFourPath,
+                      serviceImage: crossPlatformServiceImageOPath,
+                    ),
+                  ],
+                )
+              : const Column(
+                  children: [
+                    ServiceItem(
+                      title: 'Web Design & Development',
+                      description:
+                          'Crafting standout websites with compelling design and seamless functionality for a strong online presence.',
+                      serviceNumberShape: serviceShapeOnePath,
+                      serviceImage: webDesignServiceImageOPath,
+                    ),
+                    SizedBox(
+                      width: 16,
+                    ),
+                    ServiceItem(
+                      title: 'Mobile App Development',
+                      description:
+                          "Transforming ideas into user-friendly mobile apps with Flutter for an engaging experience.",
+                      serviceNumberShape: serviceShapeTwoPath,
+                      serviceImage: mobileServiceImageOPath,
+                    ),
+                  ],
+                ),
         ],
       ),
     );
