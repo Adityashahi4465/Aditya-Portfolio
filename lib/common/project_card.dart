@@ -21,7 +21,7 @@ class ProjectCard extends StatelessWidget {
         children: [
           Container(
             margin: const EdgeInsets.only(left: 16, bottom: 16),
-            child: Column(
+            child: const Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
@@ -51,7 +51,7 @@ class ProjectCard extends StatelessWidget {
                 end: Alignment.bottomLeft,
                 colors: [
                   color,
-                  Color.fromARGB(255, 20, 20, 20).withOpacity(0.3),
+                  const Color.fromARGB(255, 20, 20, 20).withOpacity(0.3),
                 ],
               ),
             ),

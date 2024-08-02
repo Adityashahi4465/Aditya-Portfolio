@@ -1,3 +1,4 @@
+import 'package:aditya_portfolio/core/constants/projects.dart';
 import 'package:aditya_portfolio/core/utils/responsive.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
@@ -36,6 +37,7 @@ class ProjectsPage extends StatelessWidget {
                     AnimatedProjectCard(
                       size: size,
                       color: AppColors.accentLight,
+                      project: projects[0],
                     ),
                     const SizedBox(
                       height: 2,
@@ -43,6 +45,7 @@ class ProjectsPage extends StatelessWidget {
                     AnimatedProjectCard(
                       size: size,
                       color: AppColors.accentDark,
+                      project: projects[2],
                     ),
                   ],
                 ),
@@ -58,6 +61,7 @@ class ProjectsPage extends StatelessWidget {
                     AnimatedProjectCard(
                       size: size,
                       color: AppColors.brightBorderColor,
+                      project: projects[1],
                     ),
                     const SizedBox(
                       height: 2,
@@ -65,6 +69,7 @@ class ProjectsPage extends StatelessWidget {
                     AnimatedProjectCard(
                       size: size,
                       color: AppColors.greyDark,
+                      project: projects[3],
                     ),
                     const SizedBox(
                       height: 74,
@@ -100,6 +105,7 @@ class ProjectsPage extends StatelessWidget {
                 AnimatedProjectCard(
                   size: size,
                   color: AppColors.accentLight,
+                  project: projects[0],
                 ),
                 const SizedBox(
                   height: 16,
@@ -107,6 +113,7 @@ class ProjectsPage extends StatelessWidget {
                 AnimatedProjectCard(
                   size: size,
                   color: AppColors.accentDark,
+                  project: projects[1],
                 ),
                 const SizedBox(
                   height: 16,
@@ -114,6 +121,7 @@ class ProjectsPage extends StatelessWidget {
                 AnimatedProjectCard(
                   size: size,
                   color: AppColors.brightBorderColor,
+                  project: projects[2],
                 ),
                 const SizedBox(
                   height: 16,
@@ -121,6 +129,7 @@ class ProjectsPage extends StatelessWidget {
                 AnimatedProjectCard(
                   size: size,
                   color: AppColors.greyDark,
+                  project: projects[3],
                 ),
                 const SizedBox(
                   height: 74,

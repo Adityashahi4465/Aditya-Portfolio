@@ -1,4 +1,5 @@
 import 'package:aditya_portfolio/core/constants/assets_constants.dart';
+import 'package:aditya_portfolio/core/utils/responsive.dart';
 import 'package:aditya_portfolio/theme/app_colors.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
@@ -16,7 +17,9 @@ class AboutPage extends StatelessWidget {
     return Container(
       alignment: Alignment.center,
       color: AppColors.primary,
-      height: MediaQuery.of(context).size.height * 1,
+      height: ResponsiveLayout.isSmallScreen(context)
+          ? MediaQuery.of(context).size.height * 1.6
+          : MediaQuery.of(context).size.height * 1,
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 12.0),
         child: Container(

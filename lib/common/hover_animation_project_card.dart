@@ -1,15 +1,18 @@
 import 'package:aditya_portfolio/common/custom_button.dart';
 import 'package:aditya_portfolio/core/utils/responsive.dart';
+import 'package:aditya_portfolio/models/project.dart';
 import 'package:aditya_portfolio/theme/app_colors.dart';
 import 'package:flutter/material.dart';
 
 class AnimatedProjectCard extends StatefulWidget {
   final Size size;
   final Color color;
+  final Project project;
   const AnimatedProjectCard({
     super.key,
     required this.size,
     required this.color,
+    required this.project,
   });
 
   @override
@@ -78,6 +81,7 @@ class _AnimatedProjectCardState extends State<AnimatedProjectCard>
 
   @override
   Widget build(BuildContext context) {
+    final project = widget.project;
     return MouseRegion(
       onHover: (_) {
         animationController.forward();
@@ -92,15 +96,21 @@ class _AnimatedProjectCardState extends State<AnimatedProjectCard>
         containerWidthNotifier.value = 0;
       },
       child: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 16),
+        padding: const EdgeInsets.symmetric(horizontal: 16),
         child: SizedBox(
           height: widget.size.height * 0.75,
           width: ResponsiveLayout.isLargeScreen(context) ? 500 : 800,
           child: Stack(
             clipBehavior: Clip.antiAlias,
             children: [
-              Container(
-                color: widget.color,
+              Opacity(
+                opacity: 0.8,
+                child: Image.asset(
+                  project.imageUrl,
+                  fit: BoxFit.fill,
+                  height: widget.size.height * 0.75,
+                  width: ResponsiveLayout.isLargeScreen(context) ? 500 : 800,
+                ),
               ),
               ValueListenableBuilder(
                 valueListenable: containerWidthNotifier,
@@ -117,9 +127,9 @@ class _AnimatedProjectCardState extends State<AnimatedProjectCard>
                 animation: ResponsiveLayout.isLargeScreen(context)
                     ? topTextAnimation
                     : largeTopTextAnimation,
-                child: const Text(
-                  '02',
-                  style: TextStyle(
+                child: Text(
+                  project.projectNo,
+                  style: const TextStyle(
                     color: Colors.white,
                     fontSize: 100,
                     fontWeight: FontWeight.w900,
@@ -142,17 +152,17 @@ class _AnimatedProjectCardState extends State<AnimatedProjectCard>
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const Text(
-                      'Website Development',
-                      style: TextStyle(
+                    Text(
+                      project.title,
+                      style: const TextStyle(
                         color: Colors.white,
                         fontSize: 30,
                         fontWeight: FontWeight.w800,
                       ),
                     ),
-                    const Text(
-                      'WordPress . Blog',
-                      style: TextStyle(
+                    Text(
+                      project.category,
+                      style: const TextStyle(
                         color: Colors.white,
                       ),
                     ),

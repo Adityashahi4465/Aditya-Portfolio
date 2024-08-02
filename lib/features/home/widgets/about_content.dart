@@ -1,4 +1,4 @@
-
+import 'package:aditya_portfolio/core/utils/responsive.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 
@@ -17,79 +17,160 @@ class AboutContent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Positioned(
-      bottom: 100,
-      left: size.width * 0.12,
-      child: Row(
-        children: [
-          Container(
-            height: size.height * 0.99,
-            width: size.width * 0.33,
-            color: AppColors.white,
-            padding: const EdgeInsets.all(68.0),
-            child: Image.asset(
-              meImagePath,
-              fit: BoxFit.cover,
-            ),
-          ),
-          SizedBox(
-            width: size.width * 0.04,
-          ),
-          SizedBox(
-            width: size.width * 0.38,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.center,
+      bottom: ResponsiveLayout.isSmallScreen(context) ? 100 : 100,
+      left: ResponsiveLayout.isSmallScreen(context)
+          ? size.width * 0.10
+          : size.width * 0.12,
+      child: ResponsiveLayout.isLargeScreen(context) ||
+              ResponsiveLayout.isMediumScreen(context)
+          // Desktop View
+          ? Row(
               children: [
+                Container(
+                  height: size.height * 0.99,
+                  width: size.width * 0.33,
+                  color: AppColors.white,
+                  padding: ResponsiveLayout.isLargeScreen(context)
+                      ? const EdgeInsets.all(68.0)
+                      : const EdgeInsets.all(28.0),
+                  child: Image.asset(
+                    meImagePath,
+                    fit: BoxFit.cover,
+                  ),
+                ),
                 SizedBox(
-                  height: size.width * 0.11,
+                  width: size.width * 0.04,
                 ),
-                const AutoSizeText(
-                  "I Create Products\nNot Just Art",
-                  style: TextStyle(
-                    fontSize: 52,
-                    fontWeight: FontWeight.bold,
+                SizedBox(
+                  width: ResponsiveLayout.isSmallScreen(context)
+                      ? size.width * 0.8
+                      : size.width * 0.38,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      SizedBox(
+                        height: size.width * 0.11,
+                      ),
+                      const AutoSizeText(
+                        "I Create Products\nNot Just Art",
+                        style: TextStyle(
+                          fontSize: 52,
+                          fontWeight: FontWeight.bold,
+                        ),
+                        maxLines: 2,
+                        minFontSize: 20,
+                        maxFontSize: 52,
+                      ),
+                      const SizedBox(
+                        height: 32,
+                      ),
+                      const AutoSizeText(
+                        "Hello, I'm Aditya Shahi, a passionate freelance software developer specializing in Flutter, Dart, and Nodejs. With hands-on experience in crafting efficient solutions using frameworks like Flutter, Node js, Firebase, and MySQL, I bring creativity and precision to every project. Whether you need a mobile app or a robust backend, I'm here to turn your ideas into reality. Let's build something amazing together!",
+                        style: TextStyle(
+                          fontWeight: FontWeight.w100,
+                          color: AppColors.greyLight,
+                          letterSpacing: 1,
+                          wordSpacing: 1.5,
+                          height: 1.8,
+                        ),
+                        maxLines:
+                            8, // Adjust the number of lines based on your layout
+                        minFontSize: 15,
+                        maxFontSize: 17,
+                      ),
+                      const SizedBox(
+                        height: 16,
+                      ),
+                      const BulletPoints(
+                        text: "Elite Solutions, Competitive Pricing",
+                      ),
+                      const BulletPoints(
+                        text: "Distinctive Design, Top-tier Development",
+                      ),
+                      const BulletPoints(
+                        text: "Exceptional Quality, Affordable Rates",
+                      ),
+                    ],
                   ),
-                  maxLines: 2,
-                  minFontSize: 20,
-                  maxFontSize: 52,
                 ),
-                const SizedBox(
-                  height: 32,
-                ),
-                const AutoSizeText(
-                  "Hello, I'm Aditya Shahi, a passionate freelance software developer specializing in Flutter, Dart, and Nodejs. With hands-on experience in crafting efficient solutions using frameworks like Flutter, Node js, Firebase, and MySQL, I bring creativity and precision to every project. Whether you need a mobile app or a robust backend, I'm here to turn your ideas into reality. Let's build something amazing together!",
-                  style: TextStyle(
-                    fontWeight: FontWeight.w100,
-                    color: AppColors.greyLight,
-                    letterSpacing: 1,
-                    wordSpacing: 1.5,
-                    height: 1.8,
+              ],
+            )
+          :
+          // Mobile View
+          Column(
+              children: [
+                Container(
+                  height: size.height * 0.80,
+                  width: size.width * 0.80,
+                  color: AppColors.white,
+                  padding: ResponsiveLayout.isLargeScreen(context) ||
+                          ResponsiveLayout.isMediumScreen(context)
+                      ? const EdgeInsets.all(68.0)
+                      : const EdgeInsets.all(48.0),
+                  child: Image.asset(
+                    meImagePath,
+                    fit: BoxFit.cover,
                   ),
-                  maxLines:
-                      8, // Adjust the number of lines based on your layout
-                  minFontSize: 15,
-                  maxFontSize: 17,
                 ),
-                const SizedBox(
-                  height: 16,
+                SizedBox(
+                  width: size.width * 0.04,
                 ),
-                const BulletPoints(
-                  text:
-                      "Elite Solutions, Competitive Pricing",
-                ),
-                const BulletPoints(
-                  text:
-                      "Distinctive Design, Top-tier Development",
-                ),
-                const BulletPoints(
-                  text:
-                      "Exceptional Quality, Affordable Rates",
+                SizedBox(
+                  width: ResponsiveLayout.isSmallScreen(context)
+                      ? size.width * 0.8
+                      : size.width * 0.38,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      SizedBox(
+                        height: size.width * 0.11,
+                      ),
+                      const AutoSizeText(
+                        "I Create Products\nNot Just Art",
+                        style: TextStyle(
+                          fontSize: 52,
+                          fontWeight: FontWeight.bold,
+                        ),
+                        maxLines: 2,
+                        minFontSize: 20,
+                        maxFontSize: 52,
+                      ),
+                      const SizedBox(
+                        height: 32,
+                      ),
+                      const AutoSizeText(
+                        "Hello, I'm Aditya Shahi, a passionate freelance software developer specializing in Flutter, Dart, and Nodejs. With hands-on experience in crafting efficient solutions using frameworks like Flutter, Node js, Firebase, and MySQL, I bring creativity and precision to every project. Whether you need a mobile app or a robust backend, I'm here to turn your ideas into reality. Let's build something amazing together!",
+                        style: TextStyle(
+                          fontWeight: FontWeight.w100,
+                          color: AppColors.greyLight,
+                          letterSpacing: 1,
+                          wordSpacing: 1.5,
+                          height: 1.8,
+                        ),
+                        maxLines:
+                            8, // Adjust the number of lines based on your layout
+                        minFontSize: 15,
+                        maxFontSize: 17,
+                      ),
+                      const SizedBox(
+                        height: 16,
+                      ),
+                      const BulletPoints(
+                        text: "Elite Solutions, Competitive Pricing",
+                      ),
+                      const BulletPoints(
+                        text: "Distinctive Design, Top-tier Development",
+                      ),
+                      const BulletPoints(
+                        text: "Exceptional Quality, Affordable Rates",
+                      ),
+                    ],
+                  ),
                 ),
               ],
             ),
-          ),
-        ],
-      ),
     );
   }
 }

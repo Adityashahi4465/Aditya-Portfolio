@@ -20,3 +20,6 @@ const webDesignServiceImageOPath = '$generalPath/web-design.png';
 const backendServiceImageOPath = '$generalPath/backend.png';
 const mobileServiceImageOPath = '$generalPath/mobile-development.png';
 const crossPlatformServiceImageOPath = '$generalPath/cross-platform.png';
+
+// Projects Images
+const asCentralDeskImagePath = '$generalPath/as_central_desk.png';
