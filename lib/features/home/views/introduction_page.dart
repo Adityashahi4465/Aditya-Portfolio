@@ -79,7 +79,7 @@ class IntroductionPage extends StatelessWidget {
                   child: Padding(
                     padding: const EdgeInsets.only(top: 20),
                     child: AutoSizeText(
-                      "Freelance Software Developer",
+                      "Software Development Engineer",
                       softWrap: true,
                       style: TextStyle(
                         fontWeight: FontWeight.w100,
