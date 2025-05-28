@@ -14,72 +14,102 @@ class IntroductionPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     return SizedBox(
-      height: size.height * 1.08,
+      height: ResponsiveLayout.isSmallScreen(context)
+          ? size.height * 0.9
+          : size.height * 1.08,
       child: Padding(
-        padding: const EdgeInsets.only(bottom: 120.0),
+        padding: ResponsiveLayout.isSmallScreen(context)
+            ? const EdgeInsets.only(bottom: 80)
+            : const EdgeInsets.only(bottom: 120.0),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Padding(
-              padding: const EdgeInsets.only(left: 48),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  AutoSizeText.rich(
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                SizedBox(
+                  width: ResponsiveLayout.isSmallScreen(context)
+                      ? size.width * 0.7
+                      : ResponsiveLayout.isMediumScreen(context)
+                          ? size.width * 0.4
+                          : size.width * 0.4,
+                  child: AutoSizeText.rich(
                     maxLines: 2,
                     minFontSize: 20,
                     maxFontSize: 26,
+                    softWrap: true,
+                    overflow: TextOverflow.visible,
                     TextSpan(
                       text: "I'm ",
-                      style: const TextStyle(
-                        fontSize: 44,
+                      style: TextStyle(
+                        fontSize:
+                            ResponsiveLayout.isSmallScreen(context) ? 34 : 44,
                       ),
                       children: [
                         TextSpan(
                           text: "Aditya ",
                           style: TextStyle(
-                            fontSize: 44,
+                            fontSize: ResponsiveLayout.isSmallScreen(context)
+                                ? 34
+                                : 44,
                             fontWeight: FontWeight.bold,
                             color: AppColors.red,
                           ),
                         ),
-                        const TextSpan(
+                        TextSpan(
                           text: "Shahi",
                           style: TextStyle(
-                            fontSize: 44,
+                            fontSize: ResponsiveLayout.isSmallScreen(context)
+                                ? 34
+                                : 44,
                             fontWeight: FontWeight.bold,
                           ),
                         ),
                       ],
                     ),
                   ),
-                  const Padding(
-                    padding: EdgeInsets.only(top: 20),
+                ),
+                SizedBox(
+                  width: ResponsiveLayout.isSmallScreen(context)
+                      ? size.width * 0.7
+                      : ResponsiveLayout.isMediumScreen(context)
+                          ? size.width * 0.6
+                          : size.width * 0.4,
+                  child: Padding(
+                    padding: const EdgeInsets.only(top: 20),
                     child: AutoSizeText(
                       "Freelance Software Developer",
+                      softWrap: true,
                       style: TextStyle(
-                        fontSize: 38,
                         fontWeight: FontWeight.w100,
+                        fontSize:
+                            ResponsiveLayout.isSmallScreen(context) ? 30 : 38,
                       ),
                       maxFontSize: 38,
                       minFontSize: 16,
                     ),
                   ),
-                  const SizedBox(
-                    height: 40,
-                  ),
-                  const SocialMediaButtonsRow(),
-                ],
+                ),
+                const SizedBox(
+                  height: 40,
+                ),
+                SizedBox(
+                  width: (!ResponsiveLayout.isSmallScreen(context))
+                      ? MediaQuery.of(context).size.width * 0.5
+                      : MediaQuery.of(context).size.width * 0.7,
+                  child: const SocialMediaButtonsRow(),
+                ),
+              ],
+            ),
+            if (!ResponsiveLayout.isSmallScreen(context))
+              SizedBox(
+                width: MediaQuery.of(context).size.width > 1120
+                    ? 240
+                    : ResponsiveLayout.isMediumScreen(context)
+                        ? 40
+                        : 160,
               ),
-            ),
-            SizedBox(
-              width: MediaQuery.of(context).size.width > 1120
-                  ? 240
-                  : ResponsiveLayout.isMediumScreen(context)
-                      ? 40
-                      : 160,
-            ),
             if (!ResponsiveLayout.isSmallScreen(context))
               CircleAvatar(
                 radius: MediaQuery.of(context).size.width / 8,

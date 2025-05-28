@@ -1,3 +1,4 @@
+import 'package:aditya_portfolio/core/utils/responsive.dart';
 import 'package:flutter/material.dart';
 
 class SocialMediaButton extends StatefulWidget {
@@ -67,55 +68,60 @@ class _SocialMediaButtonState extends State<SocialMediaButton>
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(12.0),
-      child: MouseRegion(
-        cursor: SystemMouseCursors.click,
-        onHover: (_) {
-          _shimmerController.forward();
-        },
-        onExit: (_) {
-          _shimmerPusherController.reverse();
-        },
-        child: GestureDetector(
-          onTap: widget.onPressed,
-          child: Center(
-            child: SizedBox(
-              height: 58,
-              width: 58,
-              child: Stack(
-                children: [
-                  Column(
-                    children: [
-                      ValueListenableBuilder(
-                          valueListenable: shimmerPusherNotifier,
-                          builder: (_, value, __) {
-                            return SizedBox(
-                              height: value,
-                            );
-                          }),
-                      Flexible(
-                        child: ValueListenableBuilder(
-                          valueListenable: shimmerHeightNotifier,
-                          builder: (_, value, __) {
-                            return Container(
-                              width: 82,
-                              decoration: BoxDecoration(
-                                color: Colors.grey.withOpacity(.4),
-                                borderRadius: BorderRadius.circular(8),
-                              ),
-                              height: value,
-                            );
-                          },
+    final size = MediaQuery.of(context).size;
+    return SizedBox(
+      width: 90,
+      height: 90,
+      child: Padding(
+        padding: const EdgeInsets.all(12.0),
+        child: MouseRegion(
+          cursor: SystemMouseCursors.click,
+          onHover: (_) {
+            _shimmerController.forward();
+          },
+          onExit: (_) {
+            _shimmerPusherController.reverse();
+          },
+          child: GestureDetector(
+            onTap: widget.onPressed,
+            child: Center(
+              child: SizedBox(
+                height: 58,
+                width: 58,
+                child: Stack(
+                  children: [
+                    Column(
+                      children: [
+                        ValueListenableBuilder(
+                            valueListenable: shimmerPusherNotifier,
+                            builder: (_, value, __) {
+                              return SizedBox(
+                                height: value,
+                              );
+                            }),
+                        Flexible(
+                          child: ValueListenableBuilder(
+                            valueListenable: shimmerHeightNotifier,
+                            builder: (_, value, __) {
+                              return Container(
+                                width: 82,
+                                decoration: BoxDecoration(
+                                  color: Colors.grey.withOpacity(.4),
+                                  borderRadius: BorderRadius.circular(8),
+                                ),
+                                height: value,
+                              );
+                            },
+                          ),
                         ),
-                      ),
-                    ],
-                  ),
-                  SocialButton(
-                    buttonColor: widget.buttonColor,
-                    imagePath: widget.imagePath,
-                  ),
-                ],
+                      ],
+                    ),
+                    SocialButton(
+                      buttonColor: widget.buttonColor,
+                      imagePath: widget.imagePath,
+                    ),
+                  ],
+                ),
               ),
             ),
           ),
