@@ -17,7 +17,7 @@ class AboutContent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Positioned(
-      bottom: ResponsiveLayout.isSmallScreen(context) ? 100 : 100,
+      bottom: ResponsiveLayout.isSmallScreen(context) ? 120 : 100,
       left: ResponsiveLayout.isSmallScreen(context)
           ? size.width * 0.10
           : size.width * 0.12,
@@ -27,12 +27,14 @@ class AboutContent extends StatelessWidget {
           ? Row(
               children: [
                 Container(
-                  height: size.height * 0.99,
+                  height: ResponsiveLayout.isLargeScreen(context)
+                      ? size.height * 0.99
+                      : size.height * 0.94,
                   width: size.width * 0.33,
                   color: AppColors.white,
                   padding: ResponsiveLayout.isLargeScreen(context)
-                      ? const EdgeInsets.all(68.0)
-                      : const EdgeInsets.all(28.0),
+                      ? const EdgeInsets.all(64.0)
+                      : const EdgeInsets.all(24.0),
                   child: Image.asset(
                     meImagePath,
                     fit: BoxFit.cover,
@@ -107,7 +109,7 @@ class AboutContent extends StatelessWidget {
                   padding: ResponsiveLayout.isLargeScreen(context) ||
                           ResponsiveLayout.isMediumScreen(context)
                       ? const EdgeInsets.all(68.0)
-                      : const EdgeInsets.all(48.0),
+                      : const EdgeInsets.all(18.0),
                   child: Image.asset(
                     meImagePath,
                     fit: BoxFit.cover,

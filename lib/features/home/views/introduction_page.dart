@@ -14,15 +14,16 @@ class IntroductionPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     return SizedBox(
-      height: ResponsiveLayout.isSmallScreen(context)
-          ? size.height * 0.9
-          : size.height * 1.08,
+      height:
+          ResponsiveLayout.isSmallScreen(context) ? 400 : size.height * 1.08,
       child: Padding(
         padding: ResponsiveLayout.isSmallScreen(context)
-            ? const EdgeInsets.only(bottom: 80)
+            ? const EdgeInsets.only(bottom: 30, left: 20)
             : const EdgeInsets.only(bottom: 120.0),
         child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: ResponsiveLayout.isSmallScreen(context)
+              ? MainAxisAlignment.start
+              : MainAxisAlignment.center,
           children: [
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -32,8 +33,8 @@ class IntroductionPage extends StatelessWidget {
                   width: ResponsiveLayout.isSmallScreen(context)
                       ? size.width * 0.7
                       : ResponsiveLayout.isMediumScreen(context)
-                          ? size.width * 0.4
-                          : size.width * 0.4,
+                          ? size.width * 0.5
+                          : size.width * 0.5,
                   child: AutoSizeText.rich(
                     maxLines: 2,
                     minFontSize: 20,
@@ -43,16 +44,21 @@ class IntroductionPage extends StatelessWidget {
                     TextSpan(
                       text: "I'm ",
                       style: TextStyle(
-                        fontSize:
-                            ResponsiveLayout.isSmallScreen(context) ? 34 : 44,
+                        fontSize: ResponsiveLayout.isSmallScreen(context)
+                            ? 26
+                            : ResponsiveLayout.isMediumScreen(context)
+                                ? 36
+                                : 44,
                       ),
                       children: [
                         TextSpan(
                           text: "Aditya ",
                           style: TextStyle(
                             fontSize: ResponsiveLayout.isSmallScreen(context)
-                                ? 34
-                                : 44,
+                                ? 26
+                                : ResponsiveLayout.isMediumScreen(context)
+                                    ? 36
+                                    : 44,
                             fontWeight: FontWeight.bold,
                             color: AppColors.red,
                           ),
@@ -61,8 +67,10 @@ class IntroductionPage extends StatelessWidget {
                           text: "Shahi",
                           style: TextStyle(
                             fontSize: ResponsiveLayout.isSmallScreen(context)
-                                ? 34
-                                : 44,
+                                ? 26
+                                : ResponsiveLayout.isMediumScreen(context)
+                                    ? 36
+                                    : 44,
                             fontWeight: FontWeight.bold,
                           ),
                         ),
@@ -83,8 +91,11 @@ class IntroductionPage extends StatelessWidget {
                       softWrap: true,
                       style: TextStyle(
                         fontWeight: FontWeight.w100,
-                        fontSize:
-                            ResponsiveLayout.isSmallScreen(context) ? 30 : 38,
+                        fontSize: ResponsiveLayout.isSmallScreen(context)
+                            ? 18
+                            : ResponsiveLayout.isMediumScreen(context)
+                                ? 32
+                                : 38,
                       ),
                       maxFontSize: 38,
                       minFontSize: 16,

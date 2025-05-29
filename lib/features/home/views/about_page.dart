@@ -18,7 +18,9 @@ class AboutPage extends StatelessWidget {
       alignment: Alignment.center,
       color: AppColors.primary,
       height: ResponsiveLayout.isSmallScreen(context)
-          ? MediaQuery.of(context).size.height * 1.6
+          ? size.height > 600 && size.height < 800
+              ? 1300
+              : 1430
           : MediaQuery.of(context).size.height * 1,
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 12.0),
