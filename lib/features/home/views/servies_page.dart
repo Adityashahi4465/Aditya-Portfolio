@@ -15,7 +15,7 @@ class ServicesPage extends StatelessWidget {
     return Container(
       color: AppColors.primary,
       alignment: Alignment.center,
-      padding: const EdgeInsets.symmetric(vertical: 22),
+      padding: const EdgeInsets.symmetric(vertical: 22, horizontal: 16),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
@@ -50,7 +50,6 @@ class ServicesPage extends StatelessWidget {
                   ],
                 )
               : const Column(
-                
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     ServiceItem(
@@ -59,9 +58,6 @@ class ServicesPage extends StatelessWidget {
                           'Crafting standout websites with compelling design and seamless functionality for a strong online presence.',
                       serviceNumberShape: serviceShapeOnePath,
                       serviceImage: webDesignServiceImageOPath,
-                    ),
-                    SizedBox(
-                      width: 16,
                     ),
                     ServiceItem(
                       title: 'Mobile App Development',
@@ -99,21 +95,18 @@ class ServicesPage extends StatelessWidget {
               : const Column(
                   children: [
                     ServiceItem(
-                      title: 'Web Design & Development',
+                      title: 'Backend Development',
                       description:
-                          'Crafting standout websites with compelling design and seamless functionality for a strong online presence.',
-                      serviceNumberShape: serviceShapeOnePath,
-                      serviceImage: webDesignServiceImageOPath,
-                    ),
-                    SizedBox(
-                      width: 16,
+                          'Building robust server-side solutions to power your apps with efficiency and scalability.',
+                      serviceNumberShape: serviceShapeThreePath,
+                      serviceImage: backendServiceImageOPath,
                     ),
                     ServiceItem(
-                      title: 'Mobile App Development',
+                      title: 'Cross Platform Development',
                       description:
-                          "Transforming ideas into user-friendly mobile apps with Flutter for an engaging experience.",
-                      serviceNumberShape: serviceShapeTwoPath,
-                      serviceImage: mobileServiceImageOPath,
+                          'Developing apps that work across devices with one codebase for broader accessibility.',
+                      serviceNumberShape: serviceShapeFourPath,
+                      serviceImage: crossPlatformServiceImageOPath,
                     ),
                   ],
                 ),

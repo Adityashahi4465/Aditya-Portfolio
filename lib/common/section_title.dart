@@ -1,3 +1,4 @@
+import 'package:aditya_portfolio/core/utils/responsive.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 
@@ -10,11 +11,10 @@ class SectionHeading extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return AutoSizeText(
+    return Text(
       title,
-      minFontSize: 76,
-      maxFontSize: 82,
-      style:const TextStyle(
+      style: TextStyle(
+        fontSize: ResponsiveLayout.isSmallScreen(context) ? 36 : 82,
         fontWeight: FontWeight.w900,
         color: Colors.white,
         letterSpacing: 1.5,

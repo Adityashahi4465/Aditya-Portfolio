@@ -20,13 +20,15 @@ class ServiceItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
     return Container(
       margin: const EdgeInsets.only(bottom: 16),
       width: ResponsiveLayout.isLargeScreen(context)
-          ? MediaQuery.of(context).size.width * 0.4
+          ? size.width * 0.4
           : double.infinity,
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.center,
+        spacing: 12,
         children: [
           Stack(
             children: [
@@ -34,17 +36,17 @@ class ServiceItem extends StatelessWidget {
                 scale: 1,
                 child: Image.asset(
                   serviceNumberShape,
-                  width: 250,
-                  height: 250,
+                  width: ResponsiveLayout.isSmallScreen(context) ? 150 : 250,
+                  height: ResponsiveLayout.isSmallScreen(context) ? 150 : 250,
                 ),
               ),
               Positioned(
-                top: 90,
-                left: 100,
+                top: ResponsiveLayout.isSmallScreen(context) ? 58 : 90,
+                left: ResponsiveLayout.isSmallScreen(context) ? 60 : 100,
                 child: Image.asset(
                   serviceImage,
-                  width: 65,
-                  height: 65,
+                  width: ResponsiveLayout.isSmallScreen(context) ? 45 : 65,
+                  height: ResponsiveLayout.isSmallScreen(context) ? 45 : 65,
                   fit: BoxFit.cover,
                   color: AppColors.darkPurple,
                 ),
@@ -55,26 +57,23 @@ class ServiceItem extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
-                AutoSizeText(
+                Text(
                   title,
-                  maxFontSize: 48,
-                  minFontSize: 44,
                   maxLines: 2,
                   overflow: TextOverflow.ellipsis,
-                  style: const TextStyle(
+                  style: TextStyle(
+                    fontSize: ResponsiveLayout.isSmallScreen(context) ? 24 : 48,
                     fontWeight: FontWeight.bold,
                     color: Colors.white,
                   ),
                 ),
                 const SizedBox(height: 8),
-                AutoSizeText(
+                Text(
                   description,
-                  maxFontSize: 22,
-                  minFontSize: 18,
                   maxLines: 6,
                   overflow: TextOverflow.ellipsis,
-                  style: const TextStyle(
-                    fontSize: 14,
+                  style: TextStyle(
+                    fontSize: ResponsiveLayout.isSmallScreen(context) ? 14 : 18,
                     color: Colors.white,
                   ),
                 ),

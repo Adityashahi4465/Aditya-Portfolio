@@ -21,87 +21,84 @@ class ContactMethodCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(12),
-      child: Container(
-        padding: const EdgeInsets.only(
-          left: 24,
-          right: 24,
-          top: 24,
-          bottom: 0,
+    return Container(
+      padding: const EdgeInsets.only(
+        left: 24,
+        right: 24,
+        top: 24,
+        bottom: 0,
+      ),
+      width: 350,
+      height: 186,
+      decoration: BoxDecoration(
+        color: AppColors.primaryLightDark,
+        border: Border.all(
+          color: AppColors.greyDark,
+          width: 0.6,
         ),
-        width: 350,
-        height: 186,
-        decoration: BoxDecoration(
-          color: AppColors.primaryLightDark,
-          border: Border.all(
-            color: AppColors.greyDark,
-            width: 0.6,
+        borderRadius: BorderRadius.circular(8),
+        boxShadow: [
+          BoxShadow(
+            color: AppColors.greyLight.withOpacity(0.02),
+            spreadRadius: 2,
+            blurRadius: 12,
           ),
-          borderRadius: BorderRadius.circular(8),
-          boxShadow: [
-            BoxShadow(
-              color: AppColors.greyLight.withOpacity(0.02),
-              spreadRadius: 2,
-              blurRadius: 12,
-            ),
-          ],
-        ),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            AutoSizeText(
-              contactDetail,
-              maxFontSize: 38,
-              minFontSize: 22,
-              maxLines: 2,
-              overflow: TextOverflow.ellipsis,
-              style: GoogleFonts.geologica(
-                textStyle: const TextStyle(
-                  fontWeight: FontWeight.bold,
-                  color: AppColors.white,
-                ),
+        ],
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          AutoSizeText(
+            contactDetail,
+            maxFontSize: 38,
+            minFontSize: 22,
+            maxLines: 2,
+            overflow: TextOverflow.ellipsis,
+            style: GoogleFonts.geologica(
+              textStyle: const TextStyle(
+                fontWeight: FontWeight.bold,
+                color: AppColors.white,
               ),
             ),
-            const SizedBox(
-              height: 18,
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                CircleAvatar(
-                  radius: 42,
-                  backgroundColor: AppColors.white,
+          ),
+          const SizedBox(
+            height: 18,
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              CircleAvatar(
+                radius: 42,
+                backgroundColor: AppColors.white,
+                child: Center(
                   child: Center(
-                    child: Center(
-                      child: Icon(
-                        contactIcon,
-                        size: 44,
-                        color: AppColors.red,
-                      ),
+                    child: Icon(
+                      contactIcon,
+                      size: 44,
+                      color: AppColors.red,
                     ),
                   ),
                 ),
-                const SizedBox(
-                  width: 22,
-                ),
-                AutoSizeText(
-                  contactType,
-                  maxFontSize: 24,
-                  minFontSize: 20,
-                  maxLines: 1,
-                  overflow: TextOverflow.ellipsis,
-                  style: GoogleFonts.geologica(
-                    textStyle: const TextStyle(
-                      fontWeight: FontWeight.w100,
-                      color: AppColors.grey,
-                    ),
+              ),
+              const SizedBox(
+                width: 22,
+              ),
+              AutoSizeText(
+                contactType,
+                maxFontSize: 24,
+                minFontSize: 20,
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
+                style: GoogleFonts.geologica(
+                  textStyle: const TextStyle(
+                    fontWeight: FontWeight.w100,
+                    color: AppColors.grey,
                   ),
                 ),
-              ],
-            )
-          ],
-        ),
+              ),
+            ],
+          )
+        ],
       ),
     );
   }

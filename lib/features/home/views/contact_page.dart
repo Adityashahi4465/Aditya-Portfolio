@@ -1,3 +1,4 @@
+import 'package:aditya_portfolio/core/utils/responsive.dart';
 import 'package:aditya_portfolio/theme/app_colors.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
@@ -30,7 +31,13 @@ class _ContactPageState extends State<ContactPage> {
       alignment: Alignment.center,
       padding: const EdgeInsets.symmetric(vertical: 22),
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 12.0),
+        padding: EdgeInsets.symmetric(
+          horizontal: ResponsiveLayout.isLargeScreen(context)
+              ? 12
+              : ResponsiveLayout.isMediumScreen(context)
+                  ? 68
+                  : 16,
+        ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
@@ -40,144 +47,283 @@ class _ContactPageState extends State<ContactPage> {
             const SizedBox(
               height: 80,
             ),
-            Row(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Container(
-                  padding: EdgeInsets.symmetric(
-                    horizontal: size.width / 36,
-                    vertical: 66,
-                  ),
-                  width: size.width * 0.34,
-                  decoration: BoxDecoration(
-                    color: AppColors.primaryLightDark,
-                    border: Border.all(
-                      color: AppColors.greyDark,
-                      width: 0.6,
-                    ),
-                    borderRadius: BorderRadius.circular(8),
-                    boxShadow: [
-                      BoxShadow(
-                        color: AppColors.greyLight.withOpacity(0.02),
-                        spreadRadius: 2,
-                        blurRadius: 12,
-                      ),
-                    ],
-                  ),
-                  child: Form(
-                    key: _formKey,
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        AutoSizeText(
-                          'Get in Touch',
-                          maxFontSize: 48,
-                          minFontSize: 36,
-                          maxLines: 2,
-                          overflow: TextOverflow.ellipsis,
-                          style: GoogleFonts.geologica(
-                            textStyle: const TextStyle(
-                              fontWeight: FontWeight.w400,
-                              color: AppColors.white,
-                            ),
+            ResponsiveLayout.isLargeScreen(context)
+                ?
+                // Mobile Layout
+                Row(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Container(
+                        padding: EdgeInsets.symmetric(
+                          horizontal: size.width / 36,
+                          vertical: 66,
+                        ),
+                        width: size.width * 0.34,
+                        decoration: BoxDecoration(
+                          color: AppColors.primaryLightDark,
+                          border: Border.all(
+                            color: AppColors.greyDark,
+                            width: 0.6,
                           ),
-                        ),
-                        const SizedBox(
-                          height: 32,
-                        ),
-                        Row(
-                          children: [
-                            Expanded(
-                              child: CustomTextField(
-                                hint: 'First Name',
-                                controller: _firstNameController,
-                                maxLines: 1,
-                                maxLength: 25,
-                              ),
-                            ),
-                            const SizedBox(
-                              width: 26,
-                            ),
-                            Expanded(
-                              child: CustomTextField(
-                                hint: 'Last Name',
-                                controller: _lastNameController,
-                                maxLines: 1,
-                                maxLength: 25,
-                              ),
+                          borderRadius: BorderRadius.circular(8),
+                          boxShadow: [
+                            BoxShadow(
+                              color: AppColors.greyLight.withOpacity(0.02),
+                              spreadRadius: 2,
+                              blurRadius: 12,
                             ),
                           ],
                         ),
-                        const SizedBox(
-                          height: 26,
+                        child: Form(
+                          key: _formKey,
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              AutoSizeText(
+                                'Get in Touch',
+                                maxFontSize: 48,
+                                minFontSize: 36,
+                                maxLines: 2,
+                                overflow: TextOverflow.ellipsis,
+                                style: GoogleFonts.geologica(
+                                  textStyle: const TextStyle(
+                                    fontWeight: FontWeight.w400,
+                                    color: AppColors.white,
+                                  ),
+                                ),
+                              ),
+                              const SizedBox(
+                                height: 32,
+                              ),
+                              Row(
+                                children: [
+                                  Expanded(
+                                    child: CustomTextField(
+                                      hint: 'First Name',
+                                      controller: _firstNameController,
+                                      maxLines: 1,
+                                      maxLength: 25,
+                                    ),
+                                  ),
+                                  const SizedBox(
+                                    width: 26,
+                                  ),
+                                  Expanded(
+                                    child: CustomTextField(
+                                      hint: 'Last Name',
+                                      controller: _lastNameController,
+                                      maxLines: 1,
+                                      maxLength: 25,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                              const SizedBox(
+                                height: 26,
+                              ),
+                              CustomTextField(
+                                hint: 'Email',
+                                controller: _emailNameController,
+                                maxLines: 1,
+                                maxLength: 50,
+                              ),
+                              const SizedBox(
+                                height: 26,
+                              ),
+                              CustomTextField(
+                                hint: 'Subject',
+                                controller: _subjectNameController,
+                                maxLines: 1,
+                                maxLength: 150,
+                              ),
+                              const SizedBox(
+                                height: 26,
+                              ),
+                              CustomTextField(
+                                hint: 'Description...',
+                                controller: _descNameController,
+                                maxLines: 5,
+                                maxLength: 1000,
+                              ),
+                              const SizedBox(
+                                height: 42,
+                              ),
+                              const CustomButton(),
+                            ],
+                          ),
                         ),
-                        CustomTextField(
-                          hint: 'Email',
-                          controller: _emailNameController,
-                          maxLines: 1,
-                          maxLength: 50,
-                        ),
-                        const SizedBox(
-                          height: 26,
-                        ),
-                        CustomTextField(
-                          hint: 'Subject',
-                          controller: _subjectNameController,
-                          maxLines: 1,
-                          maxLength: 150,
-                        ),
-                        const SizedBox(
-                          height: 26,
-                        ),
-                        CustomTextField(
-                          hint: 'Description...',
-                          controller: _descNameController,
-                          maxLines: 5,
-                          maxLength: 1000,
-                        ),
-                        const SizedBox(
-                          height: 42,
-                        ),
-                        const CustomButton(),
-                      ],
-                    ),
-                  ),
-                ),
-                SizedBox(
-                  width: size.width * 0.03,
-                ),
+                      ),
+                      SizedBox(
+                        width: size.width * 0.03,
+                      ),
+                      Column(
+                        children: [
+                          ContactMethodCard(
+                            contactDetail: 'aditykmcs@gmail.com',
+                            contactType: 'Official Mail',
+                            contactIcon: Icons.mail_outlined,
+                            size: size,
+                          ),
+                          const SizedBox(
+                            height: 22,
+                          ),
+                          ContactMethodCard(
+                            contactDetail: '+91 99530 48059',
+                            contactType: 'Official Phone',
+                            contactIcon: Icons.phone_outlined,
+                            size: size,
+                          ),
+                          const SizedBox(
+                            height: 22,
+                          ),
+                          ContactMethodCard(
+                            contactDetail: 'Delhi NCR, India',
+                            contactType: 'Official Location',
+                            contactIcon: Icons.location_on_outlined,
+                            size: size,
+                          ),
+                        ],
+                      ),
+                    ],
+                  )
+                : // Mobile Layout
                 Column(
-                  children: [
-                    ContactMethodCard(
-                      contactDetail: 'aditykmcs@gmail.com',
-                      contactType: 'Official Mail',
-                      contactIcon: Icons.mail_outlined,
-                      size: size,
-                    ),
-                    const SizedBox(
-                      height: 22,
-                    ),
-                    ContactMethodCard(
-                      contactDetail: '+91 99530 48059',
-                      contactType: 'Official Phone',
-                      contactIcon: Icons.phone_outlined,
-                      size: size,
-                    ),
-                    const SizedBox(
-                      height: 22,
-                    ),
-                    ContactMethodCard(
-                      contactDetail: 'Delhi NCR, India',
-                      contactType: 'Official Location',
-                      contactIcon: Icons.location_on_outlined,
-                      size: size,
-                    ),
-                  ],
-                ),
-              ],
-            ),
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    spacing: 48,
+                    children: [
+                      Container(
+                        padding: EdgeInsets.symmetric(
+                          horizontal: size.width / 36,
+                          vertical: 66,
+                        ),
+                        decoration: BoxDecoration(
+                          color: AppColors.primaryLightDark,
+                          border: Border.all(
+                            color: AppColors.greyDark,
+                            width: 0.6,
+                          ),
+                          borderRadius: BorderRadius.circular(8),
+                          boxShadow: [
+                            BoxShadow(
+                              color: AppColors.greyLight.withOpacity(0.02),
+                              spreadRadius: 2,
+                              blurRadius: 12,
+                            ),
+                          ],
+                        ),
+                        child: Form(
+                          key: _formKey,
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              AutoSizeText(
+                                'Get in Touch',
+                                maxFontSize: 48,
+                                minFontSize: 36,
+                                maxLines: 2,
+                                overflow: TextOverflow.ellipsis,
+                                style: GoogleFonts.geologica(
+                                  textStyle: const TextStyle(
+                                    fontWeight: FontWeight.w400,
+                                    color: AppColors.white,
+                                  ),
+                                ),
+                              ),
+                              const SizedBox(
+                                height: 32,
+                              ),
+                              Row(
+                                children: [
+                                  Expanded(
+                                    child: CustomTextField(
+                                      hint: 'First Name',
+                                      controller: _firstNameController,
+                                      maxLines: 1,
+                                      maxLength: 25,
+                                    ),
+                                  ),
+                                  const SizedBox(
+                                    width: 26,
+                                  ),
+                                  Expanded(
+                                    child: CustomTextField(
+                                      hint: 'Last Name',
+                                      controller: _lastNameController,
+                                      maxLines: 1,
+                                      maxLength: 25,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                              const SizedBox(
+                                height: 26,
+                              ),
+                              CustomTextField(
+                                hint: 'Email',
+                                controller: _emailNameController,
+                                maxLines: 1,
+                                maxLength: 50,
+                              ),
+                              const SizedBox(
+                                height: 26,
+                              ),
+                              CustomTextField(
+                                hint: 'Subject',
+                                controller: _subjectNameController,
+                                maxLines: 1,
+                                maxLength: 150,
+                              ),
+                              const SizedBox(
+                                height: 26,
+                              ),
+                              CustomTextField(
+                                hint: 'Description...',
+                                controller: _descNameController,
+                                maxLines: 5,
+                                maxLength: 1000,
+                              ),
+                              const SizedBox(
+                                height: 42,
+                              ),
+                              const CustomButton(),
+                            ],
+                          ),
+                        ),
+                      ),
+                      Column(
+                        children: [
+                          ContactMethodCard(
+                            contactDetail: 'aditykmcs@gmail.com',
+                            contactType: 'Official Mail',
+                            contactIcon: Icons.mail_outlined,
+                            size: size,
+                          ),
+                          const SizedBox(
+                            height: 22,
+                          ),
+                          ContactMethodCard(
+                            contactDetail: '+91 99*** ***59',
+                            contactType: 'Official Phone',
+                            contactIcon: Icons.phone_outlined,
+                            size: size,
+                          ),
+                          const SizedBox(
+                            height: 22,
+                          ),
+                          ContactMethodCard(
+                            contactDetail: 'Delhi NCR, India',
+                            contactType: 'Official Location',
+                            contactIcon: Icons.location_on_outlined,
+                            size: size,
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
           ],
         ),
       ),
