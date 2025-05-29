@@ -36,7 +36,6 @@ class IntroductionPage extends StatelessWidget {
                           ? size.width * 0.5
                           : size.width * 0.5,
                   child: AutoSizeText.rich(
-                    maxLines: 2,
                     minFontSize: 20,
                     maxFontSize: 26,
                     softWrap: true,

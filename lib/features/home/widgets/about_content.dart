@@ -19,7 +19,7 @@ class AboutContent extends StatelessWidget {
     return Positioned(
       bottom: ResponsiveLayout.isSmallScreen(context) ? 120 : 100,
       left: ResponsiveLayout.isSmallScreen(context)
-          ? size.width * 0.10
+          ? size.width * 0.06
           : size.width * 0.12,
       child: ResponsiveLayout.isLargeScreen(context) ||
               ResponsiveLayout.isMediumScreen(context)
@@ -104,7 +104,7 @@ class AboutContent extends StatelessWidget {
               children: [
                 Container(
                   height: size.height * 0.80,
-                  width: size.width * 0.80,
+                  width: size.width * 0.88,
                   color: AppColors.white,
                   padding: ResponsiveLayout.isLargeScreen(context) ||
                           ResponsiveLayout.isMediumScreen(context)

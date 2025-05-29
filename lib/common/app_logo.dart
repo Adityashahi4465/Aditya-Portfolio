@@ -1,3 +1,4 @@
+import 'package:aditya_portfolio/core/utils/responsive.dart';
 import 'package:flutter/material.dart';
 
 import '../core/constants/assets_constants.dart';
@@ -9,21 +10,21 @@ class AppLogo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Row(
+    return Row(
       children: [
         CircleAvatar(
-          radius: 34,
-          backgroundImage: AssetImage(
+          radius: ResponsiveLayout.isSmallScreen(context) ? 20 : 34,
+          backgroundImage: const AssetImage(
             logoImagePath,
           ),
         ),
-        SizedBox(
+        const SizedBox(
           width: 16,
         ),
         Text(
           "AdyAid",
           style: TextStyle(
-            fontSize: 36,
+            fontSize: ResponsiveLayout.isSmallScreen(context) ? 20 : 36,
           ),
         )
       ],
