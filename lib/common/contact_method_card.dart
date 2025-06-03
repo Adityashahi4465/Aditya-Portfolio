@@ -1,3 +1,4 @@
+import 'package:aditya_portfolio/core/utils/responsive.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -29,7 +30,7 @@ class ContactMethodCard extends StatelessWidget {
         bottom: 0,
       ),
       width: 350,
-      height: 186,
+      height: ResponsiveLayout.isSmallScreen(context) ? 140 : 186,
       decoration: BoxDecoration(
         color: AppColors.primaryLightDark,
         border: Border.all(
@@ -48,14 +49,13 @@ class ContactMethodCard extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          AutoSizeText(
+          Text(
             contactDetail,
-            maxFontSize: 38,
-            minFontSize: 22,
             maxLines: 2,
             overflow: TextOverflow.ellipsis,
             style: GoogleFonts.geologica(
-              textStyle: const TextStyle(
+              textStyle: TextStyle(
+                fontSize: ResponsiveLayout.isSmallScreen(context) ? 18 : 28,
                 fontWeight: FontWeight.bold,
                 color: AppColors.white,
               ),
@@ -68,29 +68,28 @@ class ContactMethodCard extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
               CircleAvatar(
-                radius: 42,
+                radius: ResponsiveLayout.isSmallScreen(context) ? 24 : 30,
                 backgroundColor: AppColors.white,
                 child: Center(
                   child: Center(
                     child: Icon(
                       contactIcon,
-                      size: 44,
+                      size: ResponsiveLayout.isSmallScreen(context) ? 24 : 28,
                       color: AppColors.red,
                     ),
                   ),
                 ),
               ),
-              const SizedBox(
-                width: 22,
+              SizedBox(
+                width: ResponsiveLayout.isSmallScreen(context) ? 16 : 24,
               ),
-              AutoSizeText(
+              Text(
                 contactType,
-                maxFontSize: 24,
-                minFontSize: 20,
                 maxLines: 1,
                 overflow: TextOverflow.ellipsis,
                 style: GoogleFonts.geologica(
-                  textStyle: const TextStyle(
+                  textStyle: TextStyle(
+                    fontSize: ResponsiveLayout.isSmallScreen(context) ? 16 : 24,
                     fontWeight: FontWeight.w100,
                     color: AppColors.grey,
                   ),

@@ -1,6 +1,7 @@
 import 'package:aditya_portfolio/common/social_media_button.dart';
 import 'package:aditya_portfolio/core/constants/assets_constants.dart';
 import 'package:aditya_portfolio/core/constants/constants.dart';
+import 'package:aditya_portfolio/core/utils/responsive.dart';
 import 'package:aditya_portfolio/credits.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
@@ -34,84 +35,159 @@ class HomeFooter extends ConsumerWidget {
           padding: EdgeInsets.symmetric(
             vertical: size.height * 0.07,
           ),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              const AppLogo(),
-              SizedBox(
-                width: size.width * 0.1,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  CustomTextButton(
-                    text: 'About',
-                    onPressed: () {},
-                  ),
-                  SizedBox(
-                    width: size.width * 0.016,
-                  ),
-                  CustomTextButton(
-                    text: 'Blog',
-                    onPressed: () {},
-                  ),
-                  SizedBox(
-                    width: size.width * 0.016,
-                  ),
-                  CustomTextButton(
-                    text: 'Portfolio',
-                    onPressed: () {},
-                  ),
-                  SizedBox(
-                    width: size.width * 0.016,
-                  ),
-                  CustomTextButton(
-                    text: 'Contact',
-                    onPressed: () {},
-                  ),
-                ],
-              ),
-              SizedBox(
-                width: size.width * 0.1,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  FooterSocialButton(
-                    imagePath: linkedInImagePath,
-                    buttonColor: const Color.fromARGB(255, 0, 125, 227),
-                    onTap: () => _launchInBrowser(
-                      linkedinUrl,
-                      ref,
+          child: ResponsiveLayout.isSmallScreen(context)
+              ? Column(
+                  crossAxisAlignment: CrossAxisAlignment.end,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  mainAxisSize: MainAxisSize.min,
+                  spacing: 12,
+                  children: [
+                    const Center(
+                      child: AppLogo(),
                     ),
-                  ),
-                  SizedBox(
-                    width: size.width * 0.016,
-                  ),
-                  FooterSocialButton(
-                    imagePath: instagramImagePath,
-                    buttonColor: const Color.fromARGB(255, 203, 0, 68),
-                    onTap: () => _launchInBrowser(
-                      instagramUrl,
-                      ref,
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        CustomTextButton(
+                          text: 'About',
+                          onPressed: () {},
+                        ),
+                        SizedBox(
+                          width: size.width * 0.016,
+                        ),
+                        CustomTextButton(
+                          text: 'Blog',
+                          onPressed: () {},
+                        ),
+                        SizedBox(
+                          width: size.width * 0.016,
+                        ),
+                        CustomTextButton(
+                          text: 'Portfolio',
+                          onPressed: () {},
+                        ),
+                        SizedBox(
+                          width: size.width * 0.016,
+                        ),
+                        CustomTextButton(
+                          text: 'Contact',
+                          onPressed: () {},
+                        ),
+                      ],
                     ),
-                  ),
-                  SizedBox(
-                    width: size.width * 0.016,
-                  ),
-                  FooterSocialButton(
-                    imagePath: youtubeImagePath,
-                    buttonColor: AppColors.red,
-                    onTap: () => _launchInBrowser(
-                      youtubeUrl,
-                      ref,
+                    SizedBox(
+                      width: size.width * 0.1,
                     ),
-                  ),
-                ],
-              ),
-            ],
-          ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      spacing: 18,
+                      children: [
+                        FooterSocialButton(
+                          imagePath: linkedInImagePath,
+                          buttonColor: const Color.fromARGB(255, 0, 125, 227),
+                          onTap: () => _launchInBrowser(
+                            linkedinUrl,
+                            ref,
+                          ),
+                        ),
+                        FooterSocialButton(
+                          imagePath: instagramImagePath,
+                          buttonColor: const Color.fromARGB(255, 203, 0, 68),
+                          onTap: () => _launchInBrowser(
+                            instagramUrl,
+                            ref,
+                          ),
+                        ),
+                        FooterSocialButton(
+                          imagePath: youtubeImagePath,
+                          buttonColor: AppColors.red,
+                          onTap: () => _launchInBrowser(
+                            youtubeUrl,
+                            ref,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                )
+              : Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    const AppLogo(),
+                    SizedBox(
+                      width: size.width * 0.1,
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        CustomTextButton(
+                          text: 'About',
+                          onPressed: () {},
+                        ),
+                        SizedBox(
+                          width: size.width * 0.016,
+                        ),
+                        CustomTextButton(
+                          text: 'Blog',
+                          onPressed: () {},
+                        ),
+                        SizedBox(
+                          width: size.width * 0.016,
+                        ),
+                        CustomTextButton(
+                          text: 'Portfolio',
+                          onPressed: () {},
+                        ),
+                        SizedBox(
+                          width: size.width * 0.016,
+                        ),
+                        CustomTextButton(
+                          text: 'Contact',
+                          onPressed: () {},
+                        ),
+                      ],
+                    ),
+                    SizedBox(
+                      width: size.width * 0.1,
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        FooterSocialButton(
+                          imagePath: linkedInImagePath,
+                          buttonColor: const Color.fromARGB(255, 0, 125, 227),
+                          onTap: () => _launchInBrowser(
+                            linkedinUrl,
+                            ref,
+                          ),
+                        ),
+                        SizedBox(
+                          width: size.width * 0.016,
+                        ),
+                        FooterSocialButton(
+                          imagePath: instagramImagePath,
+                          buttonColor: const Color.fromARGB(255, 203, 0, 68),
+                          onTap: () => _launchInBrowser(
+                            instagramUrl,
+                            ref,
+                          ),
+                        ),
+                        SizedBox(
+                          width: size.width * 0.016,
+                        ),
+                        FooterSocialButton(
+                          imagePath: youtubeImagePath,
+                          buttonColor: AppColors.red,
+                          onTap: () => _launchInBrowser(
+                            youtubeUrl,
+                            ref,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
         ),
         Container(
           color: AppColors.footerColor2,

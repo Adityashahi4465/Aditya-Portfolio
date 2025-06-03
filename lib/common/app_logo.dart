@@ -11,6 +11,8 @@ class AppLogo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
+      mainAxisSize: MainAxisSize.min,
+      mainAxisAlignment: MainAxisAlignment.center,
       children: [
         CircleAvatar(
           radius: ResponsiveLayout.isSmallScreen(context) ? 20 : 34,

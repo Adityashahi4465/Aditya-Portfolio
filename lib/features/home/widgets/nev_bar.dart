@@ -8,22 +8,26 @@ import '../../../core/utils/responsive.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class NavBar extends StatelessWidget {
-  const NavBar({super.key});
+  final Function(String) onItemTap;
+
+  const NavBar({
+    super.key,
+    required this.onItemTap,
+  });
 
   List<Widget> navItem() {
     return UiConstants.navLinks.map(
       (text) {
-        return MouseRegion(
-          cursor: SystemMouseCursors.click,
-          child: Padding(
-            padding: const EdgeInsets.only(
-              left: 24,
-            ),
-            child: Text(
-              text,
-              style: GoogleFonts.geologica(
-                textStyle: const TextStyle(
-                  fontSize: 16,
+        return GestureDetector(
+          onTap: () => onItemTap(text),
+          child: MouseRegion(
+            cursor: SystemMouseCursors.click,
+            child: Padding(
+              padding: const EdgeInsets.only(left: 24),
+              child: Text(
+                text,
+                style: GoogleFonts.geologica(
+                  textStyle: const TextStyle(fontSize: 16),
                 ),
               ),
             ),

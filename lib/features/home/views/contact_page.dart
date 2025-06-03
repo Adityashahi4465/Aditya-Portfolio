@@ -170,7 +170,7 @@ class _ContactPageState extends State<ContactPage> {
                             height: 22,
                           ),
                           ContactMethodCard(
-                            contactDetail: '+91 99530 48059',
+                            contactDetail: '+91 99*** ***59',
                             contactType: 'Official Phone',
                             contactIcon: Icons.phone_outlined,
                             size: size,

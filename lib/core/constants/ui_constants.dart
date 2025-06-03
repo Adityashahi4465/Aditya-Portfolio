@@ -4,8 +4,6 @@ class UiConstants {
     "About",
     "Services",
     "Projects",
-    "Experience",
     "Contact",
-    "Blog",
   ];
 }

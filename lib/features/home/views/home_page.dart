@@ -6,7 +6,6 @@ import 'package:flutter/material.dart';
 import '../../../core/constants/assets_constants.dart';
 import '../../../core/utils/color.dart';
 import '../widgets/about_content.dart';
-import '../widgets/bullet_points.dart';
 import '../widgets/nev_bar.dart';
 import 'contact_page.dart';
 import 'home_footer.dart';
@@ -14,8 +13,54 @@ import 'introduction_page.dart';
 import 'projects_page.dart';
 import 'testimonials_page.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   const HomePage({super.key});
+
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  final controller = ScrollController();
+  final homeKey = GlobalKey();
+  final aboutKey = GlobalKey();
+  final servicesKey = GlobalKey();
+  final projectsKey = GlobalKey();
+  final testimonialKey = GlobalKey();
+  final contactKey = GlobalKey();
+  final Map<String, GlobalKey> sectionKeys = {};
+
+  void scrollToSection(String section) {
+    final key = sectionKeys[section];
+    if (key != null) {
+      final context = key.currentContext;
+      if (context != null) {
+        Scrollable.ensureVisible(
+          context,
+          duration: const Duration(milliseconds: 600),
+          curve: Curves.easeInOut,
+        );
+      }
+    }
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    sectionKeys.addAll({
+      "Home": homeKey,
+      "About": aboutKey,
+      "Projects": projectsKey,
+      "Testimonial": testimonialKey,
+      "Contact": contactKey,
+    });
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    controller.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -23,6 +68,7 @@ class HomePage extends StatelessWidget {
     print('home page built');
     return Scaffold(
       body: SingleChildScrollView(
+        controller: controller,
         child: Column(
           children: <Widget>[
             Stack(
@@ -45,22 +91,34 @@ class HomePage extends StatelessWidget {
                 ),
                 Column(
                   children: [
-                    const NavBar(),
+                    NavBar(
+                      onItemTap: scrollToSection,
+                    ),
                     Stack(
                       children: [
-                        const Column(
+                        Column(
                           children: [
-                            IntroductionPage(),
-                            AboutPage(),
+                            const IntroductionPage(),
+                            AboutPage(
+                              key: aboutKey,
+                            ),
                           ],
                         ),
                         AboutContent(size: size),
                       ],
                     ),
-                    const ServicesPage(),
-                    const ProjectsPage(),
-                    const TestimonialsPage(),
-                    const ContactPage(),
+                    ServicesPage(
+                      key: servicesKey,
+                    ),
+                    ProjectsPage(
+                      key: projectsKey,
+                    ),
+                    TestimonialsPage(
+                      key: testimonialKey,
+                    ),
+                    ContactPage(
+                      key: contactKey,
+                    ),
                     const HomeFooter()
                   ],
                 ),
