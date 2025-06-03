@@ -55,7 +55,7 @@ class ContactMethodCard extends StatelessWidget {
             overflow: TextOverflow.ellipsis,
             style: GoogleFonts.geologica(
               textStyle: TextStyle(
-                fontSize: ResponsiveLayout.isSmallScreen(context) ? 18 : 28,
+                fontSize: ResponsiveLayout.isSmallScreen(context) ? 18 : 26,
                 fontWeight: FontWeight.bold,
                 color: AppColors.white,
               ),

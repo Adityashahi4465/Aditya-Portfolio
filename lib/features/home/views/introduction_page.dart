@@ -31,7 +31,7 @@ class IntroductionPage extends StatelessWidget {
               children: <Widget>[
                 SizedBox(
                   width: ResponsiveLayout.isSmallScreen(context)
-                      ? size.width * 0.7
+                      ? size.width * 0.9
                       : ResponsiveLayout.isMediumScreen(context)
                           ? size.width * 0.5
                           : size.width * 0.5,
