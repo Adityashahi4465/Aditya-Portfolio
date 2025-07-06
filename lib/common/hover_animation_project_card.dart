@@ -1,8 +1,9 @@
-import 'package:aditya_portfolio/common/custom_button.dart';
-import 'package:aditya_portfolio/core/utils/responsive.dart';
-import 'package:aditya_portfolio/models/project.dart';
-import 'package:aditya_portfolio/theme/app_colors.dart';
+import 'custom_button.dart';
+import '../core/utils/responsive.dart';
+import '../models/project.dart';
+import '../theme/app_colors.dart';
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class AnimatedProjectCard extends StatefulWidget {
   final Size size;
@@ -173,22 +174,38 @@ class _AnimatedProjectCardState extends State<AnimatedProjectCard>
                         mainAxisAlignment: MainAxisAlignment.center,
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Container(
-                            width: 150,
-                            decoration: BoxDecoration(
-                              color: AppColors.grey.withOpacity(0.3),
-                            ),
-                            padding: const EdgeInsets.symmetric(
-                              horizontal: 26,
-                              vertical: 12,
-                            ),
-                            child: const Text(
-                              'View Work',
-                              textAlign: TextAlign.center,
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 16,
-                                fontWeight: FontWeight.w800,
+                          InkWell(
+                            onTap: () {
+                              if (project.links.isNotEmpty) {
+                                final url = project.links.first;
+                                if (Uri.tryParse(url)?.hasScheme ?? false) {
+                                  launchUrl(Uri.parse(url));
+                                } else {
+                                  ScaffoldMessenger.of(context).showSnackBar(
+                                    const SnackBar(
+                                      content: Text('Invalid URL'),
+                                    ),
+                                  );
+                                }
+                              }
+                            },
+                            child: Container(
+                              width: 150,
+                              decoration: BoxDecoration(
+                                color: AppColors.grey.withOpacity(0.3),
+                              ),
+                              padding: const EdgeInsets.symmetric(
+                                horizontal: 26,
+                                vertical: 12,
+                              ),
+                              child: const Text(
+                                'View Work',
+                                textAlign: TextAlign.center,
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.w800,
+                                ),
                               ),
                             ),
                           ),

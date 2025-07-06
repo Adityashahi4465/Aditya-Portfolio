@@ -23,3 +23,4 @@ const crossPlatformServiceImageOPath = '$generalPath/cross-platform.png';
 
 // Projects Images
 const asCentralDeskImagePath = '$generalPath/as_central_desk.png';
+const kavyaKunjImagePath = '$generalPath/KavyaKunj.png';
