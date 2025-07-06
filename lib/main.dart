@@ -7,9 +7,8 @@ import 'package:google_fonts/google_fonts.dart';
 import 'features/home/views/home_page.dart';
 import 'theme/app_colors.dart';
 
-void main() async {
+void main() {
   WidgetsFlutterBinding.ensureInitialized();
-  await dotenv.load(fileName: ".env");
   runApp(
     const ProviderScope(
       child: MyApp(),
