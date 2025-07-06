@@ -31,8 +31,10 @@ class NotificationApi implements INotificationApi {
     required Client client,
   }) : _client = client;
 
+
   final sendGrid =
-      'E';
+      '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';
+
 
   @override
   FutureEither<String> sandContactEmail({
