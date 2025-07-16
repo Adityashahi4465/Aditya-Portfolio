@@ -22,7 +22,7 @@ class NotificationController extends StateNotifier<bool> {
         _ref = ref,
         super(false);
 
-  void sendContactEmail({
+  Future<bool> sendContactEmail({
     required String firstName,
     required String lastName,
     required String email,
@@ -41,12 +41,14 @@ class NotificationController extends StateNotifier<bool> {
     );
 
     state = false;
-    result.fold(
+    return result.fold(
       (failure) {
         showSnackBar(context, failure.message);
+        return false;
       },
       (successMessage) {
         showSnackBar(context, successMessage);
+        return true;
       },
     );
   }

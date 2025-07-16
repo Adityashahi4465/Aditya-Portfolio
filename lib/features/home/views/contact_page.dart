@@ -1,5 +1,6 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../../../core/utils/extensions/validators.dart';
 import '../../../core/utils/responsive.dart';
 import '../../../theme/app_colors.dart';
 import 'package:auto_size_text/auto_size_text.dart';
@@ -27,9 +28,11 @@ class _ContactPageState extends ConsumerState<ContactPage> {
   final TextEditingController _subjectNameController = TextEditingController();
   final TextEditingController _descNameController = TextEditingController();
 
-  void sendContactEmail() {
+  void sendContactEmail() async {
     if (_formKey.currentState!.validate()) {
-      ref.read(notificationControllerProvider.notifier).sendContactEmail(
+      final res = await ref
+          .read(notificationControllerProvider.notifier)
+          .sendContactEmail(
             firstName: _firstNameController.text.trim(),
             lastName: _lastNameController.text.trim(),
             email: _emailNameController.text.trim(),
@@ -37,12 +40,30 @@ class _ContactPageState extends ConsumerState<ContactPage> {
             description: _descNameController.text.trim(),
             context: context,
           );
+      if (res) {
+        _firstNameController.clear();
+        _lastNameController.clear();
+        _emailNameController.clear();
+        _subjectNameController.clear();
+        _descNameController.clear();
+      }
     }
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    _firstNameController.dispose();
+    _lastNameController.dispose();
+    _emailNameController.dispose();
+    _subjectNameController.dispose();
+    _descNameController.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
+    final isLoading = ref.watch(notificationControllerProvider);
     return Container(
       color: AppColors.primaryLightDark,
       alignment: Alignment.center,
@@ -122,6 +143,12 @@ class _ContactPageState extends ConsumerState<ContactPage> {
                                       controller: _firstNameController,
                                       maxLines: 1,
                                       maxLength: 25,
+                                      validator: (value) {
+                                        if (value!.isEmpty) {
+                                          return 'Please enter your first name';
+                                        }
+                                        return null;
+                                      },
                                     ),
                                   ),
                                   const SizedBox(
@@ -129,11 +156,16 @@ class _ContactPageState extends ConsumerState<ContactPage> {
                                   ),
                                   Expanded(
                                     child: CustomTextField(
-                                      hint: 'Last Name',
-                                      controller: _lastNameController,
-                                      maxLines: 1,
-                                      maxLength: 25,
-                                    ),
+                                        hint: 'Last Name',
+                                        controller: _lastNameController,
+                                        maxLines: 1,
+                                        maxLength: 25,
+                                        validator: (value) {
+                                          if (value!.isEmpty) {
+                                            return 'Please enter your last name';
+                                          }
+                                          return null;
+                                        }),
                                   ),
                                 ],
                               ),
@@ -145,6 +177,14 @@ class _ContactPageState extends ConsumerState<ContactPage> {
                                 controller: _emailNameController,
                                 maxLines: 1,
                                 maxLength: 50,
+                                validator: (value) {
+                                  if (value!.isEmpty) {
+                                    return 'Please enter a email';
+                                  } else if (!value.isValidEmail()) {
+                                    return 'Please provide a valid email';
+                                  }
+                                  return null;
+                                },
                               ),
                               const SizedBox(
                                 height: 26,
@@ -154,6 +194,12 @@ class _ContactPageState extends ConsumerState<ContactPage> {
                                 controller: _subjectNameController,
                                 maxLines: 1,
                                 maxLength: 150,
+                                validator: (value) {
+                                  if (value!.isEmpty) {
+                                    return 'Please enter a subject';
+                                  }
+                                  return null;
+                                },
                               ),
                               const SizedBox(
                                 height: 26,
@@ -163,6 +209,12 @@ class _ContactPageState extends ConsumerState<ContactPage> {
                                 controller: _descNameController,
                                 maxLines: 5,
                                 maxLength: 1000,
+                                validator: (value) {
+                                  if (value!.isEmpty) {
+                                    return 'Please enter a description';
+                                  }
+                                  return null;
+                                },
                               ),
                               const SizedBox(
                                 height: 42,
@@ -263,6 +315,12 @@ class _ContactPageState extends ConsumerState<ContactPage> {
                                       controller: _firstNameController,
                                       maxLines: 1,
                                       maxLength: 25,
+                                      validator: (value) {
+                                        if (value!.isEmpty) {
+                                          return 'Please enter your first name';
+                                        }
+                                        return null;
+                                      },
                                     ),
                                   ),
                                   const SizedBox(
@@ -274,6 +332,12 @@ class _ContactPageState extends ConsumerState<ContactPage> {
                                       controller: _lastNameController,
                                       maxLines: 1,
                                       maxLength: 25,
+                                      validator: (value) {
+                                        if (value!.isEmpty) {
+                                          return 'Please enter your last name';
+                                        }
+                                        return null;
+                                      },
                                     ),
                                   ),
                                 ],
@@ -286,6 +350,14 @@ class _ContactPageState extends ConsumerState<ContactPage> {
                                 controller: _emailNameController,
                                 maxLines: 1,
                                 maxLength: 50,
+                                validator: (value) {
+                                  if (value!.isEmpty) {
+                                    return 'Please enter a email';
+                                  } else if (!value.isValidEmail()) {
+                                    return 'Please provide a valid email';
+                                  }
+                                  return null;
+                                },
                               ),
                               const SizedBox(
                                 height: 26,
@@ -295,6 +367,12 @@ class _ContactPageState extends ConsumerState<ContactPage> {
                                 controller: _subjectNameController,
                                 maxLines: 1,
                                 maxLength: 150,
+                                validator: (value) {
+                                  if (value!.isEmpty) {
+                                    return 'Please enter a subject';
+                                  }
+                                  return null;
+                                },
                               ),
                               const SizedBox(
                                 height: 26,
@@ -304,12 +382,19 @@ class _ContactPageState extends ConsumerState<ContactPage> {
                                 controller: _descNameController,
                                 maxLines: 5,
                                 maxLength: 1000,
+                                validator: (value) {
+                                  if (value!.isEmpty) {
+                                    return 'Please enter a description';
+                                  }
+                                  return null;
+                                },
                               ),
                               const SizedBox(
                                 height: 42,
                               ),
                               CustomButton(
                                 onPressed: sendContactEmail,
+                                isLoading: isLoading,
                               ),
                             ],
                           ),

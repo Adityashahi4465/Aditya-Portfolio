@@ -8,12 +8,15 @@ class CustomTextField extends StatelessWidget {
   final TextEditingController controller;
   final int maxLines;
   final int maxLength;
+  final String? Function(String?)? validator;
+
   const CustomTextField({
     super.key,
     required this.hint,
     required this.controller,
     required this.maxLines,
     required this.maxLength,
+    required this.validator,
   });
 
   @override
@@ -21,6 +24,7 @@ class CustomTextField extends StatelessWidget {
     return TextFormField(
       maxLines: maxLines,
       controller: controller,
+      validator: validator,
       style: GoogleFonts.geologica(
         textStyle: const TextStyle(
           fontSize: 14,

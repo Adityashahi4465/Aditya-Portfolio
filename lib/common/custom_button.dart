@@ -5,9 +5,11 @@ import '../theme/app_colors.dart';
 
 class CustomButton extends StatelessWidget {
   final VoidCallback? onPressed;
+  final bool isLoading;
   const CustomButton({
     Key? key,
     required this.onPressed,
+    this.isLoading = false,
   }) : super(key: key);
 
   @override
@@ -25,15 +27,19 @@ class CustomButton extends StatelessWidget {
               BorderRadius.circular(30), // Adjust the borderRadius as needed
         ),
         child: Center(
-          child: Text(
-            'Send Message',
-            style: GoogleFonts.geologica(
-              textStyle: const TextStyle(
-                fontSize: 16,
-                color: AppColors.white,
-              ),
-            ),
-          ),
+          child: isLoading
+              ? const CircularProgressIndicator(
+                  color: AppColors.background,
+                )
+              : Text(
+                  'Send Message',
+                  style: GoogleFonts.geologica(
+                    textStyle: const TextStyle(
+                      fontSize: 16,
+                      color: AppColors.white,
+                    ),
+                  ),
+                ),
         ),
       ),
     );
