@@ -1,0 +1,1 @@
+const backendUrl = 'https://kavyakunj-backend.onrender.com/api';
